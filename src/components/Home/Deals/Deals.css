@@ -1,0 +1,22 @@
+
+section#deals-sec{
+    margin: 5%;
+}
+
+div.deals-col{
+    margin: 5% 7%;
+}
+
+p.pros{
+    font-size: 0.7rem;
+    text-align: left;
+}
+
+p.pros.no{
+    color: rgb(193, 193, 193);
+}
+
+.bg-default *{
+    color: black;
+    font-weight: bold;
+}

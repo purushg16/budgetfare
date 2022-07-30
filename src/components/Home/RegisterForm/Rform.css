@@ -1,0 +1,22 @@
+section#register-form .form-check-input{
+    max-width: 30px;
+    min-width: 10px !important;
+}
+
+section#register-form .form-check-label{
+    font-size: 0.7rem;
+}
+
+section#register-form{
+    margin-top: 10%;
+    padding: 2% 30%;
+}
+
+.form-check-input[type=checkbox]:checked {
+    background-image: none !important;
+}
+
+
+.register-button{
+    padding: 3%;
+}

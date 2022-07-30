@@ -1,0 +1,26 @@
+.navbar-top {
+    padding: 1% 7% !important;
+    box-shadow: 0 !important;
+}
+
+.offer-banner{
+    background: green;
+    margin: 0 !important;
+    width: 100%;
+    padding: 1%;
+}
+
+.button-group{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+}
+
+.nav-reg-btn{
+    transition: all 1s !important;
+}
+
+.nav-reg-btn:hover{
+    background-color: #00b74a !important;
+    color: white !important;
+}

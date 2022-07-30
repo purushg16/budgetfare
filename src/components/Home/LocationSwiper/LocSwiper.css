@@ -1,0 +1,42 @@
+.LocSwiper{
+    margin-top: 10%;
+}
+
+.LocSwiper span.input-group-text {
+    background-color: white;
+    border-left: 1px solid #ced4da;
+    border-top: 1px solid #ced4da;
+    border-bottom: 1px solid #ced4da;
+    border-right: 1px solid rgba(0,0,0,0.5);
+}
+
+.LocSwiper input.form-control {
+    border-left: 0;
+    transition: all 1s;
+}
+
+.form-control:focus {
+    box-shadow: inset 0 1px 1px rgba(247, 224, 224, 0.075), 0 0 8px rgba(247, 224, 224, 0.075) !important;
+}
+
+.swiper-wrapper {
+    transform: translate3d(-22px, 0px, 0px);
+}
+
+.LocSwiper .swiper {
+    width: 100%;
+    /* padding-top: 50px !important; */
+    padding-bottom: 100px !important;
+}
+
+.LocSwiper .swiper-slide {
+    background-position: center;
+    background-size: cover !important;
+    width: 300px !important;
+    height: 300px !important;
+    /* background: white !important; */
+}
+
+.swiper-3d .swiper-slide-shadow-left, .swiper-3d .swiper-slide-shadow-right {
+    background-image: none !important;
+}

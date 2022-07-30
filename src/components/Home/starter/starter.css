@@ -1,0 +1,31 @@
+.starter {
+  margin-top: 5%;
+}
+
+div#starter-left h4,
+h5 {
+  padding-bottom: 2%;
+}
+
+.border-l {
+  border-left: 0.1px solid rgb(150, 150, 150);
+}
+
+div#starter-right{
+    display: none;
+}
+
+@media (min-width: 1352px) {
+    div#starter-right{
+        display: block;
+    }
+
+    .col-xxl-6 {
+        flex: 0 0 auto !important;
+        width: 50% !important;
+    }
+
+    .showers.col-lg-2 { 
+        width: 30%;
+    }
+}
