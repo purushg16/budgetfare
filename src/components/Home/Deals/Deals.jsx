@@ -14,7 +14,7 @@ import {
 export default function Deals() {
   return (
     <section id="deals-sec">
-      <h4> Get deals based on where you travel </h4>
+      <h3 style={{ marginBottom: "7%", fontWeight: 'bold' }}> Get deals based on where you travel </h3>
       <div className="deals-col">
         <MDBContainer>
           <MDBRow>
@@ -29,7 +29,7 @@ export default function Deals() {
                     <p className='pros no'> <span> <MDBIcon fas icon="times" /> </span>International Business Deal Notifications </p>
                   </MDBCardText>
                 </MDBCardBody>
-                <MDBCardText style={{ background: "#00b74a", borderRadius: '0px 0px 7px 7px' }}>
+                <MDBCardText style={{padding:'3%', background: "#00b74a", borderRadius: '0px 0px 7px 7px' }}>
                   Sign Up Now!
                 </MDBCardText>
               </MDBCard>
@@ -46,7 +46,7 @@ export default function Deals() {
                     <p className='pros no'> <span> <MDBIcon fas icon="times" /> </span> International Business Deal Notifications </p>
                   </MDBCardText>
                 </MDBCardBody>
-                <MDBCardText style={{ background: "#00b74a",  borderRadius: '0px 0px 7px 7px' }}>
+                <MDBCardText style={{padding:'3%', background: "#00b74a",  borderRadius: '0px 0px 7px 7px' }}>
                   Sign Up Now!
                 </MDBCardText>
               </MDBCard>
@@ -63,7 +63,7 @@ export default function Deals() {
                     <p className='pros'><span> <MDBIcon fas icon="check" /> </span>International Business Deal Notifications </p>
                   </MDBCardText>
                 </MDBCardBody>
-                <MDBCardText style={{ background: "#00b74a", borderRadius: '0px 0px 7px 7px' }}>
+                <MDBCardText style={{padding:'3%',  background: "#00b74a", borderRadius: '0px 0px 7px 7px' }}>
                   Sign Up Now!
                 </MDBCardText>
               </MDBCard>

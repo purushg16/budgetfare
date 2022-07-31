@@ -19,6 +19,10 @@
     box-shadow: inset 0 1px 1px rgba(247, 224, 224, 0.075), 0 0 8px rgba(247, 224, 224, 0.075) !important;
 }
 
+datalist {
+    display: none !important;
+}
+
 .swiper-wrapper {
     transform: translate3d(-22px, 0px, 0px);
 }
@@ -33,10 +37,33 @@
     background-position: center;
     background-size: cover !important;
     width: 300px !important;
-    height: 300px !important;
+    height: 350px !important;
     /* background: white !important; */
 }
 
 .swiper-3d .swiper-slide-shadow-left, .swiper-3d .swiper-slide-shadow-right {
     background-image: none !important;
 }
+
+div.css-qc6sy-singleValue
+{
+    font-size: medium;
+    font-weight: bold;
+}
+
+
+#react-select-3-listbox{
+    background: hsl(0, 0%, 100%);
+    font-size: medium;
+    padding: 5%;
+    border-radius: 9px;
+}
+
+div.css-4ljt47-MenuList
+{   
+    transition: all 0.8s;
+    font-size: 1.2rem;
+}
+/* #react-select-3-listbox{
+
+} */

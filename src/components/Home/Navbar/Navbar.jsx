@@ -9,7 +9,6 @@ import {
   MDBNavbarLink,
   MDBBtn,
   MDBCollapse,
-  MDBInputGroup,
 } from "mdb-react-ui-kit";
 import { useState } from "react";
 
@@ -20,15 +19,10 @@ function NavbarTop() {
 
   return (
     <>
-      <div className="offer-banner">
-        <p style={{ marginBottom: 0 }}>
-          {" "}
-          Craziest Offer ever is now available!{" "}
-        </p>
-      </div>
-      <MDBNavbar expand="lg" light bgColor="light" className="navbar-top">
+      
+      <MDBNavbar sticky expand="lg" light  className="navbar-top" style={{ background: '#ffffffe8' }}>
         <MDBContainer fluid>
-          <MDBNavbarBrand href="#">Brand</MDBNavbarBrand>
+          <MDBNavbarBrand href="#"> BudgetFare </MDBNavbarBrand>
 
           <MDBNavbarToggler
             aria-controls="navbarSupportedContent"
@@ -63,12 +57,10 @@ function NavbarTop() {
                 Login
               </MDBBtn>
               <MDBBtn outline color="success" type="button" className='nav-reg-btn'>
-                Get Started
+                Register
               </MDBBtn>
             </MDBContainer>
-
-
-          </MDBCollapse>
+          </MDBCollapse>          
         </MDBContainer>
       </MDBNavbar>
     </>

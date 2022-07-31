@@ -1,47 +1,103 @@
 import "./LocSwiper.css";
 import Container from "react-bootstrap/Container";
-import Button from "react-bootstrap/Button";
 import Stack from "react-bootstrap/Stack";
-import InputGroup from "react-bootstrap/InputGroup";
-import { Form } from "react-bootstrap";
-import { MDBIcon } from "mdb-react-ui-kit";
+import { MDBBtn, MDBIcon } from "mdb-react-ui-kit";
 import Card from "react-bootstrap/Card";
-import { MDBRow, MDBCol } from 'mdb-react-ui-kit';
+import { MDBRow, MDBCol } from "mdb-react-ui-kit";
 
 import { EffectCoverflow, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useEffect, useState } from "react";
+import { createApi } from "unsplash-js";
+
+import Select from "react-select";
+
+const unsplash = new createApi({
+  accessKey: "3DfbEtJCTn211Q85rJbrtECqXYMEes2wA19QXqUSb6A",
+});
 
 function LocationSwiper() {
-    
-    useEffect( () => {
-        console.log('hii')
-        console.log(document.querySelector('.swiper-wrapper').style.transform = 'translate3d(-82px, 0px, 0px)');
-    } )    
+  const [query, setQuery] = useState(null);
 
-    return (
+  function handleCity(e) {
+   
+    if(e !== null) {
+    setQuery(e.value);
+    console.log(query);
+    }
+  }
+
+  useEffect(() => {
+    unsplash.search
+      .getPhotos({
+        query: "rome",
+      })
+      .then((result) => {
+        console.log(result.response.results[0].urls.full);
+      });
+      console.log(document.querySelector('.react-select-3-listbox'));
+  });
+
+  const options = [
+    { value: "Albenia", label: "Albenia Airport, Washington D.C, America" },
+    { value: "Ohio", label: "Ohio Airport, Washington D.C, America" },
+    { value: "Alaska", label: "Alaska Airport, Washington D.C, America" },
+    { value: "Indiana", label: "Indiana Airport, Washington D.C, America" },
+    { value: "NewYork", label: "NewYork Airport, Washington D.C, America" },
+    { value: "Apple", label: "Apple Airport, Washington D.C, America" },
+    { value: "Samsung", label: "Samsung Airport, Washington D.C, America" },
+    { value: "Hawkings", label: "Hawkings Airport, Washington D.C, America" },
+    { value: "Virginia", label: "Virginia Airport, Washington D.C, America" },
+  ];
+
+  return (
     <>
       <Container className="LocSwiper">
         <MDBRow>
-          <MDBCol xs={12} md={4}  style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-              }}>
-            <div >
-              <Stack gap={2} className="MDBCol-md-10 mx-auto">
-                Check out the latest deals from your area
-                <InputGroup className="mb-3">
+          <MDBCol
+            xs={12}
+            md={4}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <div>
+              <Stack gap={2} className="MDBCol-md-10 mx-auto" >
+                <h3  style={{ fontWeight: 'bold'}} >  Check out the latest deals from your area </h3>
+                {/* <InputGroup className="mb-3">
                   <InputGroup.Text id="basic-addon1">
                     {" "}
                     <MDBIcon fas icon="search" />{" "}
-                  </InputGroup.Text>
-                  <Form.Control
+                  </InputGroup.Text> */}
+                <Select
+                  
+                  placeholder='Select City by'
+                  isClearable
+                  menuShouldScrollIntoView
+                  // menuIsOpen
+                  options={options}
+                  // value={'query'}
+                  onChange={handleCity}
+                />
+                {/* <Form.Control
+                    value={query}
+                    onChange={handleCity}
                     placeholder="Search places like Goa, bali"
                     aria-label="Username"
                     aria-describedby="basic-addon1"
+                    list="browsers"
                   />
-                </InputGroup>
+
+                  <datalist id="browsers">
+                    <option value="Edge" />
+                    <option value="Firefox" />
+                    <option value="Chrome" />
+                    <option value="Opera" />
+                    <option value="Safari" />
+                  </datalist> */}
+                {/* </InputGroup> */}
               </Stack>
             </div>
           </MDBCol>
@@ -56,9 +112,8 @@ function LocationSwiper() {
                 stretch: 0,
                 depth: 100,
                 modifier: 1,
-                slideShadows: true,
+                // slideShadows: true,
               }}
-              pagination={true}
               modules={[EffectCoverflow, Pagination]}
               className="mySwiper"
             >
@@ -66,16 +121,19 @@ function LocationSwiper() {
                 <Card style={{ width: "300px" }}>
                   <Card.Img
                     variant="top"
-                    src="https://picsum.photos/500/500"
+                    src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cm9tZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60"
                     style={{ width: "100%", height: "15rem" }}
                   />
                   <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">
-                      Card Subtitle
+                    <Card.Title  style={{ fontWeight: 'bold'}}  >Rome, Greece</Card.Title>
+                    <Card.Subtitle className="mb-2 text-muted"  style={{ fontWeight: 'bold'}} >
+                      $200
                     </Card.Subtitle>
-                    <Card.Link href="#">Card Link</Card.Link>
-                    <Card.Link href="#">Another Link</Card.Link>
+                    <p>
+                      {" "}
+                      <MDBIcon fas icon="plane-departure" /> Barcelona{" "}
+                    </p>
+                    <MDBBtn color='success'>Get Deals</MDBBtn>
                   </Card.Body>
                 </Card>
               </SwiperSlide>
@@ -83,16 +141,20 @@ function LocationSwiper() {
                 <Card style={{ width: "300px" }}>
                   <Card.Img
                     variant="top"
-                    src="https://picsum.photos/500/500"
+                    src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGFyaXN8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
                     style={{ width: "100%", height: "15rem" }}
                   />
                   <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">
-                      Card Subtitle
+                    <Card.Title style={{ fontWeight: 'bold'}} >Paris, France</Card.Title>
+                    <Card.Subtitle className="mb-2 text-muted" style={{ fontWeight: 'bold'}} >
+                      $300
                     </Card.Subtitle>
-                    <Card.Link href="#">Card Link</Card.Link>
-                    <Card.Link href="#">Another Link</Card.Link>
+                    <p>
+                      {" "}
+                      <MDBIcon fas icon="plane-departure" /> Barcelona{" "}
+                    </p>
+                    <MDBBtn color='success'>Get Deals</MDBBtn>
+
                   </Card.Body>
                 </Card>
               </SwiperSlide>
@@ -100,16 +162,20 @@ function LocationSwiper() {
                 <Card style={{ width: "300px" }}>
                   <Card.Img
                     variant="top"
-                    src="https://picsum.photos/500/500"
+                    src="https://images.unsplash.com/photo-1518563172008-e56c5dfbaef6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bnl8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
                     style={{ width: "100%", height: "15rem" }}
                   />
                   <Card.Body>
-                    <Card.Title>Card Title</Card.Title>
-                    <Card.Subtitle className="mb-2 text-muted">
-                      Card Subtitle
+                    <Card.Title style={{ fontWeight: 'bold'}} >NY, Washington D.C, America</Card.Title>
+                    <Card.Subtitle className="mb-2 text-muted" style={{ fontWeight: 'bold'}} >
+                      $599
                     </Card.Subtitle>
-                    <Card.Link href="#">Card Link</Card.Link>
-                    <Card.Link href="#">Another Link</Card.Link>
+                    <p>
+                      {" "}
+                      <MDBIcon fas icon="plane-departure" /> Barcelona{" "}
+                    </p>
+                    <MDBBtn color='success'>Get Deals</MDBBtn>
+
                   </Card.Body>
                 </Card>
               </SwiperSlide>

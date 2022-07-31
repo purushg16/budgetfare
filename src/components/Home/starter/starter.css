@@ -15,6 +15,13 @@ div#starter-right{
     display: none;
 }
 
+.s-getS{
+  padding: 2% !important;
+  text-transform:capitalize !important;
+  font-size: medium !important;
+  font-weight: bold !important;
+}
+
 @media (min-width: 1352px) {
     div#starter-right{
         display: block;
@@ -28,4 +35,14 @@ div#starter-right{
     .showers.col-lg-2 { 
         width: 30%;
     }
+}
+
+@media (max-width: 576px){
+  .col-sm-4 {
+    flex: 0 0 auto;
+    width: 33.33333333% !important;
+  }
+  .row>* {
+    flex-shrink: none !important;
+  }
 }

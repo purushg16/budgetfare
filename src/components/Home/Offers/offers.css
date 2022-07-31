@@ -1,7 +1,14 @@
 #offers-sec{
-    margin: 9%;
+    margin: 4%;
 }
 
 .offer-swiper{
     margin-top: 7%;
+}
+
+#offers-sec .swiper-slide {
+    background-position: center;
+    background-size: cover !important;
+    height: 400px !important;
+    /* background: white !important; */
 }

@@ -1,22 +1,82 @@
-section#register-form .form-check-input{
-    max-width: 30px;
-    min-width: 10px !important;
+section#register-form .form-check-input {
+  max-width: 30px;
+  min-width: 10px !important;
 }
 
-section#register-form .form-check-label{
-    font-size: 0.7rem;
+section#register-form .form-check-label {
+  font-size: 0.7rem;
 }
 
-section#register-form{
-    margin-top: 10%;
-    padding: 2% 30%;
+section#register-form {
+  /* display: flex; */
+  /* margin-top: 10%; */
+  width: 50%;
+  margin: 10% 25%;
 }
 
-.form-check-input[type=checkbox]:checked {
-    background-image: none !important;
+@media (max-width: 525px) {
+  section#register-form {
+    width: 100%;
+    margin: 5% 0;
+    padding: 0 10%;
+  }
+
+  section#register-form * {
+    font-size: 1rem;
 }
 
+#fName{
+    margin-bottom: 7%;
+}
+}
 
-.register-button{
-    padding: 3%;
+.form-check-input[type="checkbox"]:checked {
+  background-image: none !important;
+  border: 1px solid rgb(0, 0, 0, 0.25);
+  background-color: #14c800c7 !important;
+}
+
+input[type="checkbox"] {
+  outline: none;
+}
+
+.register-button {
+  padding: 3%;
+}
+
+#flexCheckDefault {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+div.css-1s2u09g-control {
+  background: hsl(0deg 0% 100% / 0%) !important;
+}
+
+div.css-1pahdxg-control {
+  background: hsl(0deg 0% 100% / 0%) !important;
+}
+
+/* div.css-1s2u09g-control:hover{
+    border: none !important;
+} */
+
+#react-select-5-listbox {
+  border-radius: 9px;
+}
+
+.homeland-select-register .css-4ljt47-MenuList {
+  background: white !important;
+  font-size: large;
+  border-radius: 9px;
+}
+
+.homeland-select-register {
+  margin-bottom: 5%;
+  background: rgba(255, 255, 255, 0) !important;
+}
+
+.css-4ljt47-MenuList div {
+  /* list items */
+  padding: 4% 1% 4% 4%;
+  text-align: left;
 }
