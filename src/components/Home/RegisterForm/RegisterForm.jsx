@@ -40,11 +40,19 @@ export default function RegisterForm(props) {
     }
   }
 
+  function submitForm(e) {
+    if (query === null) {
+      e.preventDefault();
+      document.querySelector("#home-w-p").style.display = "block";
+    }
+  }
+
   useEffect(() => {
     if (query !== null) {
       document.querySelector(".homeland-select-register").style.display =
         "none";
       document.querySelector(".homeland-card").style.display = "block";
+      document.querySelector("#home-w-p").style.display = "none";
     } else {
       document.querySelector(".homeland-select-register").style.display =
         "block";
@@ -53,25 +61,30 @@ export default function RegisterForm(props) {
   }, [query]);
 
   return (
-    <section id="register-form">
-      <h3 style={{ marginBottom: "7%", fontWeight: 'bold' }}> Create An Account for Free </h3>
+    <section id="register-form"  style={{ scrollMarginTop: '5em' }} >
+      <h3 style={{ marginBottom: "7%", fontWeight: "bold" }}>
+        {" "}
+        Create An Account for Free{" "}
+      </h3>
 
-      <form>
+      <form onSubmit={submitForm}>
         <MDBRow className="mb-4">
-          <MDBCol sm={12} md={12} lg={6} id='fName'>
-            <MDBInput id="form3Example1" label="First name*" />
+          <MDBCol sm={12} md={12} lg={6} id="fName">
+            <MDBInput required id="form3Example1" label="First name*" />
           </MDBCol>
-          <MDBCol  sm={12} md={12} lg={6}>
-            <MDBInput id="form3Example2" label="Last name*" />
+          <MDBCol sm={12} md={12} lg={6}>
+            <MDBInput required id="form3Example2" label="Last name*" />
           </MDBCol>
         </MDBRow>
         <MDBInput
+          required
           className="mb-4"
           type="email"
           id="form3Example3"
           label="Email address*"
         />
         <MDBInput
+          required
           className="mb-4"
           type="password"
           id="form3Example4"
@@ -79,6 +92,7 @@ export default function RegisterForm(props) {
         />
 
         <MDBCheckbox
+          required
           name="flexCheck"
           value=""
           id="flexCheckDefault"
@@ -93,7 +107,7 @@ export default function RegisterForm(props) {
           menuShouldScrollIntoView
           // menuIsOpen
           options={options}
-          value={'query'}
+          value={"query"}
           onChange={handleCity}
         />
 
@@ -122,7 +136,9 @@ export default function RegisterForm(props) {
                         background: "#008000ad",
                       }}
                       type="button"
-                      onClick={()=>{ setQuery(null) }}
+                      onClick={() => {
+                        setQuery(null);
+                      }}
                     >
                       {" "}
                       <MDBIcon fas icon="times" />{" "}
@@ -133,6 +149,11 @@ export default function RegisterForm(props) {
             </div>
           </MDBCardBody>
         </MDBCard>
+
+        <p id="home-w-p" style={{ display: "none" }}>
+          {" "}
+          Please select a home city{" "}
+        </p>
 
         <MDBBtn
           type="submit"

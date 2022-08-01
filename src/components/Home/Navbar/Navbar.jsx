@@ -53,12 +53,13 @@ function NavbarTop() {
             </MDBNavbarNav>
 
             <MDBContainer className='button-group'>
-              <MDBBtn  color="success" className='mx-2' type="button">
+              <a href="/login"> <MDBBtn  color="success" className='mx-2' type="button">
                 Login
-              </MDBBtn>
-              <MDBBtn outline color="success" type="button" className='nav-reg-btn'>
+              </MDBBtn> </a>
+              <a href="#register-form"><MDBBtn outline color="success" type="button" className='nav-reg-btn'>
                 Register
               </MDBBtn>
+              </a>
             </MDBContainer>
           </MDBCollapse>          
         </MDBContainer>

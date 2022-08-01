@@ -7,8 +7,6 @@
 }
 
 #offers-sec .swiper-slide {
-    background-position: center;
-    background-size: cover !important;
     height: 400px !important;
     /* background: white !important; */
 }

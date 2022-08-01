@@ -9,7 +9,7 @@ import Deals from "./Deals/Deals";
 
 function Home() {
   return (
-    <>
+    <div id="home">
       <NavbarTop />
       <Starter />
       <LocationSwiper />
@@ -17,7 +17,7 @@ function Home() {
       <RegisterForm />
       <Offers/>
       <Deals />
-    </>
+    </div>
   );
 }
 

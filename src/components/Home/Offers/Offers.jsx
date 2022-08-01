@@ -8,8 +8,6 @@ import {
   MDBCardImage,
   MDBCardBody,
   MDBCardTitle,
-  MDBCardText,
-  MDBCardFooter,
 } from "mdb-react-ui-kit";
 
 const unsplash = new createApi({
@@ -25,7 +23,7 @@ export default function Offers() {
       </h3>
 
       <Swiper
-        watchSlidesProgress={true}
+        // watchSlidesProgress={true}
         spaceBetween={50}
         autoHeight={true}
         slidesPerView={3}
@@ -44,19 +42,19 @@ export default function Offers() {
             spaceBetween: 30,
           },
           860: {
-            slidesPerView: 2,
+            slidesPerView: 3,
             spaceBetween: 40,
           },
           861: {
-            slidesPerView: 3,
+            slidesPerView: 4,
             spaceBetween: 40,
           },
         }}
       >
-        <SwiperSlide style={{ maxWidth: "14.6em" }}>
+        <SwiperSlide>
           <MDBCard style={{ boxShadow: '7px 10px 15px rgb(156 156 156 / 55%)', borderRadius: '5px' }}>
             <MDBCardBody>
-              <MDBCardTitle style={{ textAlign: 'left' }}>
+              <MDBCardTitle style={{ textAlign: 'left', fontSize: '0.8rem', fontWeight: '600' }}>
                 <h5 style={{ fontWeight: 'bold' }}> $567 </h5> 
                 Rome, Greece
               </MDBCardTitle>
@@ -70,10 +68,10 @@ export default function Offers() {
           </MDBCard>
         </SwiperSlide>
 
-        <SwiperSlide style={{ maxWidth: "14.6em" }}>
+        <SwiperSlide>
           <MDBCard style={{ boxShadow: '7px 10px 15px rgb(156 156 156 / 55%)', borderRadius: '5px' }}>
             <MDBCardBody>
-              <MDBCardTitle style={{ textAlign: 'left' }}>
+              <MDBCardTitle style={{ textAlign: 'left', fontSize: '0.8rem', fontWeight: '600' }}>
                 <h5 style={{ fontWeight: 'bold' }}> $567 </h5> 
                 Paris, France
               </MDBCardTitle>
@@ -87,10 +85,10 @@ export default function Offers() {
           </MDBCard>
         </SwiperSlide>
 
-        <SwiperSlide style={{ maxWidth: "14.6em", width: '20%' }}>
+        <SwiperSlide>
           <MDBCard style={{ boxShadow: '7px 10px 15px rgb(156 156 156 / 55%)', borderRadius: '5px' }}>
             <MDBCardBody>
-              <MDBCardTitle style={{ textAlign: 'left' }}>
+              <MDBCardTitle style={{ textAlign: 'left', fontSize: '0.8rem', fontWeight: '600' }}>
                 <h5 style={{ fontWeight: 'bold' }}> $567 </h5> 
                 NY, America
               </MDBCardTitle>
@@ -104,10 +102,10 @@ export default function Offers() {
           </MDBCard>
         </SwiperSlide>
 
-        <SwiperSlide style={{ maxWidth: "14.6em" }}>
+        <SwiperSlide>
           <MDBCard style={{ boxShadow: '7px 10px 15px rgb(156 156 156 / 55%)', borderRadius: '5px' }}>
             <MDBCardBody>
-              <MDBCardTitle style={{ textAlign: 'left' }}>
+              <MDBCardTitle style={{ textAlign: 'left', fontSize: '0.8rem', fontWeight: '600' }}>
                 <h5 style={{ fontWeight: 'bold' }}> $567 </h5> 
                 Morocco, Russia
               </MDBCardTitle>
@@ -122,10 +120,10 @@ export default function Offers() {
         </SwiperSlide>
 
 
-        <SwiperSlide style={{ maxWidth: "14.6em" }}>
+        <SwiperSlide>
           <MDBCard style={{ boxShadow: '7px 10px 15px rgb(156 156 156 / 55%)', borderRadius: '5px' }}>
             <MDBCardBody>
-              <MDBCardTitle style={{ textAlign: 'left' }}>
+              <MDBCardTitle style={{ textAlign: 'left', fontSize: '0.8rem', fontWeight: '600' }}>
                 <h5 style={{ fontWeight: 'bold' }}> $567 </h5> 
                  Netherlands
               </MDBCardTitle>
@@ -140,10 +138,10 @@ export default function Offers() {
         </SwiperSlide>
 
 
-        <SwiperSlide style={{ maxWidth: "14.6em" }}>
+        <SwiperSlide>
           <MDBCard style={{ boxShadow: '7px 10px 15px rgb(156 156 156 / 55%)', borderRadius: '5px' }}>
             <MDBCardBody>
-              <MDBCardTitle style={{ textAlign: 'left' }}>
+              <MDBCardTitle style={{ textAlign: 'left', fontSize: '0.8rem', fontWeight: '600' }}>
                 <h5 style={{ fontWeight: 'bold' }}> $567 </h5> 
                 Agra, India
               </MDBCardTitle>
@@ -157,10 +155,10 @@ export default function Offers() {
           </MDBCard>
         </SwiperSlide>
 
-        <SwiperSlide style={{ maxWidth: "14.6em" }}>
+        <SwiperSlide>
           <MDBCard style={{ boxShadow: '7px 10px 15px rgb(156 156 156 / 55%)', borderRadius: '5px' }}>
             <MDBCardBody>
-              <MDBCardTitle style={{ textAlign: 'left' }}>
+              <MDBCardTitle style={{ textAlign: 'left', fontSize: '0.8rem', fontWeight: '600' }}>
                 <h5 style={{ fontWeight: 'bold' }}> $567 </h5> 
                 Pakistan
               </MDBCardTitle>
@@ -174,10 +172,10 @@ export default function Offers() {
           </MDBCard>
         </SwiperSlide>
 
-        <SwiperSlide style={{ maxWidth: "14.6em" }}>
+        <SwiperSlide>
           <MDBCard style={{ boxShadow: '7px 10px 15px rgb(156 156 156 / 55%)', borderRadius: '5px' }}>
             <MDBCardBody>
-              <MDBCardTitle style={{ textAlign: 'left' }}>
+              <MDBCardTitle style={{ textAlign: 'left', fontSize: '0.8rem', fontWeight: '600' }}>
                 <h5 style={{ fontWeight: 'bold' }}> $567 </h5> 
                 Tokyo, Japan
               </MDBCardTitle>

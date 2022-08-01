@@ -9,11 +9,18 @@ function Starter() {
       <Container className="starter">
         <MDBRow>
           <MDBCol xs={12} md={12} lg={12} xxl={6}>
-            
             <div id="starter-left">
-              <h4 style={{ fontWeight: 'bold', fontSize: '1.7rem'}} >Explore the world with amazing flight deals</h4>
+              <h4 style={{ fontWeight: "bold", fontSize: "1.7rem" }}>
+                Explore the world with amazing flight deals
+              </h4>
 
-              <h5 style={{ fontWeight: 'bold', fontSize: '1rem', fontFamily: 'cursive'}} >
+              <h5
+                style={{
+                  fontWeight: "bold",
+                  fontSize: "1rem",
+                  fontFamily: "cursive",
+                }}
+              >
                 Up to 80% off your flight prices – we send deal notifications to
                 incredible destinations every week!
               </h5>
@@ -22,7 +29,10 @@ function Starter() {
                 Get Started Now
               </MDBBtn>
 
-              <Container className="starter" style={{ fontWeight: 'bold', fontSize: '1rem'}}>
+              <Container
+                className="starter"
+                style={{ fontWeight: "bold", fontSize: "1rem" }}
+              >
                 <MDBRow className="justify-content-md-center">
                   <MDBCol xs sm={4} md={3} lg="2" className="showers">
                     $450 saved per flight on average
@@ -39,7 +49,15 @@ function Starter() {
           </MDBCol>
 
           <MDBCol xs={12} md={12} lg={12} xxl={6}>
-            <div id="starter-right">xs=6 md=4</div>
+            <div id="starter-right">
+              <div className="ratio ratio-16x9">
+                <iframe
+                  src="https://www.youtube.com/embed/vlDzYIIOYmM"
+                  title="YouTube video"
+                  allowfullscreen
+                ></iframe>
+              </div>
+            </div>
           </MDBCol>
         </MDBRow>
       </Container>

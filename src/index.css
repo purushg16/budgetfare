@@ -6,9 +6,13 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
+}
+
+#home{
   /* background: #fbe5ce ; */
   background: rgb(255,255,255);
-  background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(211,252,255,1) 25%, rgba(213,255,214,1) 59%, rgba(247,231,214,1) 100%);  
+  background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(211,252,255,1) 25%, rgba(243,255,244,1) 59%, rgba(247,231,214,1) 100%);
+
 }
 
 input::-webkit-calendar-picker-indicator {
