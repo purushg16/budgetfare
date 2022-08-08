@@ -18,7 +18,7 @@ div#starter-right{
 .s-getS{
   padding: 2% !important;
   text-transform:capitalize !important;
-  font-size: medium !important;
+  font-size: 0.9rem !important;
   font-weight: bold !important;
 }
 
@@ -36,6 +36,12 @@ div#starter-right{
         width: 30%;
     }
 }
+
+/* @media (max-width: 576px){ */
+  .starter-row div{
+    font-size: 16px;
+  }
+/* } */
 
 @media (max-width: 576px){
   .col-sm-4 {

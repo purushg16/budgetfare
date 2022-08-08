@@ -64,7 +64,7 @@ function LocationSwiper() {
             }}
           >
             <div>
-              <Stack gap={2} className="MDBCol-md-10 mx-auto" >
+              <Stack gap={2} className="MDBCol-md-10 mx-auto search-bar">
                 <h3  style={{ fontWeight: 'bold'}} >  Check out the latest deals from your area </h3>
                 {/* <InputGroup className="mb-3">
                   <InputGroup.Text id="basic-addon1">
@@ -72,7 +72,7 @@ function LocationSwiper() {
                     <MDBIcon fas icon="search" />{" "}
                   </InputGroup.Text> */}
                 <Select
-                  
+                  // menuIsOpen
                   placeholder='Select City by'
                   isClearable
                   menuShouldScrollIntoView
@@ -81,23 +81,6 @@ function LocationSwiper() {
                   // value={'query'}
                   onChange={handleCity}
                 />
-                {/* <Form.Control
-                    value={query}
-                    onChange={handleCity}
-                    placeholder="Search places like Goa, bali"
-                    aria-label="Username"
-                    aria-describedby="basic-addon1"
-                    list="browsers"
-                  />
-
-                  <datalist id="browsers">
-                    <option value="Edge" />
-                    <option value="Firefox" />
-                    <option value="Chrome" />
-                    <option value="Opera" />
-                    <option value="Safari" />
-                  </datalist> */}
-                {/* </InputGroup> */}
               </Stack>
             </div>
           </MDBCol>

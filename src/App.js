@@ -13,6 +13,8 @@ import "react-alice-carousel/lib/scss/alice-carousel.scss";
 
 import { Routes, Route } from "react-router-dom";
 import Login from './components/Login/Login';
+import ALogin from './components/Admin/Login/ALogin';
+import Dashboard from './components/Admin/Dashboard/Dashboard';
 
 function App() {
   return (
@@ -20,6 +22,8 @@ function App() {
       <Routes>
         <Route path="/"       element={<Home />} />
         <Route path="/login"  element={<Login/>} />
+        <Route path='/admin'  element={<ALogin />} /> 
+        <Route path='/dashboard'  element={<Dashboard />} /> 
       </Routes>
     </div>
   );

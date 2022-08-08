@@ -12,6 +12,7 @@ import {
   MDBCardTitle,
   MDBCardText,
   MDBContainer,
+  MDBBtnGroup,
 } from "mdb-react-ui-kit";
 import Select, { StylesConfig } from "react-select";
 import { useEffect, useState } from "react";
@@ -61,7 +62,7 @@ export default function RegisterForm(props) {
   }, [query]);
 
   return (
-    <section id="register-form"  style={{ scrollMarginTop: '5em' }} >
+    <section id="register-form" style={{ scrollMarginTop: "5em" }}>
       <h3 style={{ marginBottom: "7%", fontWeight: "bold" }}>
         {" "}
         Create An Account for Free{" "}
@@ -110,45 +111,34 @@ export default function RegisterForm(props) {
           value={"query"}
           onChange={handleCity}
         />
+        {/*  */}
 
-        <MDBCard
+        <MDBContainer
           className="homeland-card"
-          style={{ marginBottom: "5%", paddingTop: "0%" }}
+          style={{ position: "relative" }}
         >
-          <MDBCardBody style={{ padding: "2% 4%" }}>
-            <div className="d-flex  bg-light">
-              <MDBContainer>
-                <MDBRow className="align-items-center">
-                  <MDBCol style={{ textAlign: "" }} sm="1" md={1} lg={1}>
-                    <MDBIcon fas icon="home" />{" "}
-                  </MDBCol>
-                  <MDBCol>
-                    <MDBCardText style={{ textAlign: "left" }}>
-                      {query}
-                      <p style={{ marginBottom: "0" }}>{home} </p>
-                    </MDBCardText>
-                  </MDBCol>
-                  <MDBCol style={{ textAlign: "end" }} sm="1" md={1} lg={1}>
-                    <MDBBtn
-                      style={{
-                        color: "black",
-                        padding: "50%",
-                        background: "#008000ad",
-                      }}
-                      type="button"
-                      onClick={() => {
-                        setQuery(null);
-                      }}
-                    >
-                      {" "}
-                      <MDBIcon fas icon="times" />{" "}
-                    </MDBBtn>
-                  </MDBCol>
-                </MDBRow>
-              </MDBContainer>
-            </div>
-          </MDBCardBody>
-        </MDBCard>
+          <p style={{ position: "relative", marginBottom: 0, margin: "0% 5%" }}>
+            {" "}
+            <MDBIcon fas icon="home" /> {query}{" "}
+          </p>
+          <MDBBtn
+            onClick={() => {
+              setQuery(null);
+            }}
+            tag="a"
+            color="none"
+            className="m-1"
+            style={{
+              color: "grey",
+              position: "absolute",
+              top: 0,
+              right: "8px",
+            }}
+          >
+            {" "}
+            <MDBIcon fas icon="times" />{" "}
+          </MDBBtn>
+        </MDBContainer>
 
         <p id="home-w-p" style={{ display: "none" }}>
           {" "}

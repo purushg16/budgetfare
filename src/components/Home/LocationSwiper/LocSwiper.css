@@ -67,3 +67,13 @@ div.css-4ljt47-MenuList
 /* #react-select-3-listbox{
 
 } */
+
+@media (max-width: 768px) {
+    .search-bar{
+        margin-bottom: 5%;
+    }
+
+    #react-select-3-listbox{
+        z-index: 3;
+    }
+}

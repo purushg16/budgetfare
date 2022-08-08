@@ -33,7 +33,7 @@ function Starter() {
                 className="starter"
                 style={{ fontWeight: "bold", fontSize: "1rem" }}
               >
-                <MDBRow className="justify-content-md-center">
+                <MDBRow className="justify-content-md-center starter-row">
                   <MDBCol xs sm={4} md={3} lg="2" className="showers">
                     $450 saved per flight on average
                   </MDBCol>

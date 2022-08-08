@@ -1,0 +1,11 @@
+
+.dash-btn:hover, .dash-btn:focus {
+    background: #00b74a;
+}
+
+.dash-right {
+    padding: 5%;
+    background: hsl(144, 100%, 66%);
+    border-radius: 9px;
+    box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 15px 0 rgb(0 0 0 / 10%);
+}

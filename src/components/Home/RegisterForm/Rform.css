@@ -30,6 +30,20 @@ section#register-form {
 }
 }
 
+a.ripple:after {
+  position: absolute;
+  content: "";
+  bottom: -40px;
+  height: 40px;
+  width: 1px;
+}
+
+.homeland-card{
+  background: #c7fbc1c7;
+  padding: 2%;
+  margin-bottom: 3%;
+  border-radius: 9px;
+}
 .form-check-input[type="checkbox"]:checked {
   background-image: none !important;
   border: 1px solid rgb(0, 0, 0, 0.25);
