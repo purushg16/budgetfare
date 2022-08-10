@@ -117,7 +117,7 @@ export default function RegisterForm(props) {
           className="homeland-card"
           style={{ position: "relative" }}
         >
-          <p style={{ position: "relative", marginBottom: 0, margin: "0% 5%" }}>
+          <p className='home-airport' style={{ position: "relative", marginBottom: 0, margin: "0% 5%" }}>
             {" "}
             <MDBIcon fas icon="home" /> {query}{" "}
           </p>

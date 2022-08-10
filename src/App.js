@@ -15,6 +15,7 @@ import { Routes, Route } from "react-router-dom";
 import Login from './components/Login/Login';
 import ALogin from './components/Admin/Login/ALogin';
 import Dashboard from './components/Admin/Dashboard/Dashboard';
+import LHome from './components/LHome/LHone';
 
 function App() {
   return (
@@ -24,9 +25,10 @@ function App() {
         <Route path="/login"  element={<Login/>} />
         <Route path='/admin'  element={<ALogin />} /> 
         <Route path='/dashboard'  element={<Dashboard />} /> 
+        <Route path='/~' element={<LHome />} />
       </Routes>
     </div>
-  );
+  )
 }
 
 export default App;

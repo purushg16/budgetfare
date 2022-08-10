@@ -1,4 +1,8 @@
 
+/* #dashboard{
+    margin: 5% 5%;
+} */
+
 .dash-btn:hover, .dash-btn:focus {
     background: #00b74a;
 }
@@ -9,3 +13,66 @@
     border-radius: 9px;
     box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 15px 0 rgb(0 0 0 / 10%);
 }
+
+@media (max-width: 768px) {
+    .right-col-dash{
+        margin-top: 5%;
+    }
+}
+
+#control-bar {
+    padding: 2% 7%;
+  
+    position: sticky;
+    top: 0;
+    z-index: 4;
+    width: 100%;
+  
+    background: rgb(242, 255, 223);
+  
+    box-shadow: -10px -8px 12px 0 rgb(0 0 0 / 7%), 0 2px 4px rgb(0 0 0 / 5%);
+  }
+   
+  
+  .controls-div{
+      height: 100%; 
+      width:100%;
+  }
+  
+  .controls-div div {
+      width: 24%;
+    display: inline-block;
+    *display: inline;
+    zoom: 1;
+    vertical-align: top;
+  }
+  
+  .controls-div.l726 div {
+    width: 48%;
+}
+
+  @media (max-width: 577px) {
+    .padding{
+        padding: 5% !important;
+    }
+  }
+
+  .l726{
+    display: none;
+}
+
+    button.blocky{
+        width: 90%;
+    }
+    button.blocky-g{
+        width: 98%;
+    }
+
+  @media (max-width: 740px) {
+    .g726{
+        display: none;
+    }
+    .l726{
+        display: block;
+    }
+  }

@@ -7,9 +7,15 @@ div.deals-col{
     margin: 5% 7%;
 }
 
+.h-100{
+    display: flex !;
+    display: -webkit-flex;
+    flex-wrap: wrap;
+}
+
 p.pros{
     font-size: 0.7rem;
-    text-align: left;
+    text-align: center;
 }
 
 p.pros.no{
@@ -20,3 +26,23 @@ p.pros.no{
     color: black;
     font-weight: bold;
 }
+
+@media (max-width: 768px) {
+    .col-md{
+        margin-bottom: 7%;
+    }
+}
+
+/* .global-h {
+    color: white;
+    background: rgb(41,115,0);
+    background: linear-gradient(90deg, rgba(41,115,0,1) 0%, rgba(0,212,255,1) 100%);
+}
+
+.pro-h{
+    color: wheat;
+    background: rgb(169,53,184);
+    background: linear-gradient(90deg, rgba(169,53,184,0.8298669809720763) 48%, rgba(0,212,255,1) 100%);
+} */
+
+

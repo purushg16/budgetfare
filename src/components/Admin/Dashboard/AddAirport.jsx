@@ -5,7 +5,7 @@ export default function AddAirport() {
         <form>
                 <h3 style={{ marginBottom: "5%", fontWeight: "bold" }}>
                   {" "}
-                  Login{" "}
+                  AddAirport{" "}
                 </h3>
                 <h5>
                   {" "}

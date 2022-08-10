@@ -1,0 +1,52 @@
+.lnavbar-top {
+  padding: 2% 7% !important;
+  box-shadow: 0 !important;
+  /* background: rgba(220,220,255,1) !important; */
+}
+
+a.navbar-brand {
+  font-weight: 600;
+}
+
+ul.navbar-nav li a {
+  font-size: small;
+  font-weight: 600;
+}
+
+.offer-banner {
+  background: green;
+  margin: 0 !important;
+  width: 100%;
+  padding: 1%;
+}
+
+@media (min-width: 992px) {
+  .button-group {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+  }
+}
+
+.nav-reg-btn {
+  transition: all 1s !important;
+}
+
+.nav-reg-btn:hover {
+  background-color: #00b74a !important;
+  color: white !important;
+}
+
+
+@media (max-width: 1073px){
+  #link-group{
+    display: none !important;
+  }
+}
+
+/* .button-group {
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  max-width: 960px;
+} */

@@ -25,6 +25,12 @@ section#register-form {
     font-size: 1rem;
 }
 
+@media (max-width: 800px) {
+  p.home-airport{
+    padding: 5%;
+  }
+}
+
 #fName{
     margin-bottom: 7%;
 }

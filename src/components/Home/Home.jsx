@@ -6,6 +6,7 @@ import Work from "./Works/Work";
 import RegisterForm from "./RegisterForm/RegisterForm";
 import Offers from "./Offers/Offers";
 import Deals from "./Deals/Deals";
+import Footer from "./Footer/Footer";
 
 function Home() {
   return (
@@ -17,6 +18,7 @@ function Home() {
       <RegisterForm />
       <Offers/>
       <Deals />
+      <Footer />
     </div>
   );
 }
