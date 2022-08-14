@@ -1,0 +1,20 @@
+
+.plan-card{
+    margin: 3% 3% 3% 0%;
+    padding: 5% 5% 10% 0%;
+    /* border: 1px black solid; */
+    border-radius: 9px;
+}
+
+@media (min-width: 650px) {
+    .plan-card{
+    width: 70%;
+    }
+}
+
+@media (max-width: 575px) {
+    .margin-top-card{
+        margin-top: 3%;
+    }    
+}
+

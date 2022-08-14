@@ -16,6 +16,7 @@ import Login from './components/Login/Login';
 import ALogin from './components/Admin/Login/ALogin';
 import Dashboard from './components/Admin/Dashboard/Dashboard';
 import LHome from './components/LHome/LHone';
+import MyAccount from './components/LHome/MyAccount/MyAccount';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path='/admin'  element={<ALogin />} /> 
         <Route path='/dashboard'  element={<Dashboard />} /> 
         <Route path='/~' element={<LHome />} />
+        <Route path='/myaccount' element={<MyAccount />} />
       </Routes>
     </div>
   )

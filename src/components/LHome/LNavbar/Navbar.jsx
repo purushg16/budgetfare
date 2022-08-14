@@ -45,7 +45,7 @@ function NavbarTop() {
                 <MDBNavbarLink href="#"  style={{ whiteSpace: 'nowrap' }}> Deals Settings </MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <MDBNavbarLink href="#"  style={{ whiteSpace: 'nowrap' }}> My Account </MDBNavbarLink>
+                <MDBNavbarLink href="/myaccount"  style={{ whiteSpace: 'nowrap' }}> My Account </MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
                 <MDBNavbarLink href="#"  style={{ whiteSpace: 'nowrap' }}> GiftFareDrop </MDBNavbarLink>

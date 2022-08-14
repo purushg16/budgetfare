@@ -5,7 +5,7 @@ import './Controls.css'
 export default function ControlBar() {
   return (
       <section id="control">
-      <div id="control-bar">
+      <div id="control-bar" className="bottom">
         <div className="controls-div">
           <div>
             <p> <MDBIcon fas icon="home" /> <br></br> Home </p>

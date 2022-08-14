@@ -1,0 +1,78 @@
+import {
+  MDBBtn,
+  MDBCard,
+  MDBCardBody,
+  MDBCardFooter,
+  MDBCardHeader,
+  MDBCardText,
+  MDBCardTitle,
+  MDBCol,
+  MDBRow,
+} from "mdb-react-ui-kit";
+import "./Plan.css";
+
+export default function AccountPlans() {
+  return (
+    <>
+      <h4 style={{ textAlign: "left" }}>Plan & Billing</h4>
+      <p style={{ textAlign: "left", marginBottom: "5%" }}>
+        {" "}
+        Update your FareDrop plan and billing information{" "}
+      </p>
+
+      <div className="plan-card">
+        <MDBCard style={{ textAlign: "left" }}>
+          <MDBCardHeader> Current Plan </MDBCardHeader>
+          <MDBCardBody>
+            <MDBCardTitle> Domestic Plan </MDBCardTitle>
+            <MDBCardText>
+              With supporting text below as a natural lead-in to additional
+              content.
+            </MDBCardText>
+            {/* <MDBBtn href="#">Button</MDBBtn> */}
+          </MDBCardBody>
+          <MDBCardFooter className="text-muted">2 days ago</MDBCardFooter>
+        </MDBCard>
+        {/* <div>
+          You're getting personalized Economy class flight deals to domestic
+          destinations.
+        </div> */}
+      </div>
+
+      <h4 style={{ textAlign: "left" }}> Available Plans </h4>
+
+      <MDBRow>
+        <MDBCol sm="6">
+          <MDBCard style={{ textAlign: "left" }}>
+            {/* <MDBCardHeader> Current Plan </MDBCardHeader> */}
+            <MDBCardBody>
+              <MDBCardTitle>Global Plan </MDBCardTitle>
+              <MDBCardText>
+                With supporting text below as a natural lead-in to additional
+                content.
+              </MDBCardText>
+              <MDBBtn href="#"> Upgrade </MDBBtn>
+            </MDBCardBody>
+            <MDBCardFooter className="text-muted">2 days ago</MDBCardFooter>
+          </MDBCard>
+        </MDBCol>
+
+        <MDBCol sm="6" className="margin-top-card">
+          <MDBCard style={{ textAlign: "left" }}>
+            {/* <MDBCardHeader> Current Plan </MDBCardHeader> */}
+            <MDBCardBody>
+              <MDBCardTitle> Global Pro Plan </MDBCardTitle>
+              <MDBCardText>
+                With supporting text below as a natural lead-in to additional
+                content.
+              </MDBCardText>
+              <MDBBtn href="#"> Upgrade </MDBBtn>
+
+            </MDBCardBody>
+            <MDBCardFooter className="text-muted">2 days ago</MDBCardFooter>
+          </MDBCard>
+        </MDBCol>
+      </MDBRow>
+    </>
+  );
+}

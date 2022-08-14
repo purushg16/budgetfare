@@ -1,0 +1,32 @@
+
+#noti .form-check-input[type="checkbox"]{
+    background: rgb(222, 222, 222) !important;
+    height: 1.3em;
+    width: 2.3rem !important;
+    border-radius: 99px;
+}
+
+.form-check-input:before{
+    top: 1%;
+}
+
+#noti .form-check-input[type="checkbox"]:checked{
+    background: rgb(222, 222, 222);
+    height: 1.3em;
+}
+
+#noti .form-switch .form-check-input:after{
+    top:15%;
+}
+
+#noti .form-switch .form-check-input:checked[type=checkbox]:after{
+    background-color: green !important; 
+}
+
+/* .form-control:focus {
+    box-shadow: none;
+  } */
+  
+.form-check-input::after, .form-check-input::before {
+    display: block;
+  }

@@ -37,6 +37,28 @@ export default function GPlans() {
         //   direction={'vertical'}
         //   style={{ overflow: "scroll", position: "relative" }}
           className="mySwiper"
+
+          breakpoints={{
+            320: {
+              slidesPerView: 1,
+              spaceBetween: 20,
+            },
+            480: {
+              slidesPerView: 1,
+              spaceBetween: 30,
+            },
+            500: {
+              slidesPerView: 2,
+              spaceBetween: 30,
+            },
+            860: {
+              slidesPerView: 3,
+              spaceBetween: 40,
+            },
+            861: {
+              slidesPerView: 4,
+              spaceBetween: 40,
+            },}}
         >
           <SwiperSlide>
             <MDBCard>

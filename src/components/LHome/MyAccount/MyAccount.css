@@ -1,0 +1,36 @@
+#my-account {
+  margin: 5% 7%;
+}
+
+#my-account .nav-link.active {
+  border-color: white !important;
+}
+
+ul.nav-tabs li {
+  margin-bottom: 3%;
+}
+
+#my-account .nav-item a {
+  border-radius: 9px;
+}
+
+#my-account .nav-item a:hover {
+  background: rgb(253, 211, 155) rgb(187, 255, 187) !important;
+}
+
+#my-account li.nav-item a {
+  color: rgb(103, 103, 103) !important;
+  font-weight: bold;
+}
+
+#my-account .nav-link.active {
+  color: rgb(187, 255, 187) !important;
+}
+
+/* personal */
+
+@media (min-width: 768px) {
+  input[type="password"] {
+    width: 100%;
+  }
+}
