@@ -17,7 +17,7 @@ export default function AccountPlans() {
       <h4 style={{ textAlign: "left" }}>Plan & Billing</h4>
       <p style={{ textAlign: "left", marginBottom: "5%" }}>
         {" "}
-        Update your FareDrop plan and billing information{" "}
+        Update your BudgetFare plan and billing information{" "}
       </p>
 
       <div className="plan-card">
@@ -29,9 +29,12 @@ export default function AccountPlans() {
               With supporting text below as a natural lead-in to additional
               content.
             </MDBCardText>
-            {/* <MDBBtn href="#">Button</MDBBtn> */}
+            <div style={{textAlign: 'right'}}>
+            <MDBBtn href="#all-plans" color="success">Upgrade Plan</MDBBtn>
+            </div>
           </MDBCardBody>
-          <MDBCardFooter className="text-muted">2 days ago</MDBCardFooter>
+          <MDBCardFooter className="text-muted"> Validity: 1year </MDBCardFooter>
+
         </MDBCard>
         {/* <div>
           You're getting personalized Economy class flight deals to domestic
@@ -40,7 +43,8 @@ export default function AccountPlans() {
       </div>
 
       <h4 style={{ textAlign: "left" }}> Available Plans </h4>
-
+      
+      <div id="all-plans">
       <MDBRow>
         <MDBCol sm="6">
           <MDBCard style={{ textAlign: "left" }}>
@@ -51,9 +55,13 @@ export default function AccountPlans() {
                 With supporting text below as a natural lead-in to additional
                 content.
               </MDBCardText>
-              <MDBBtn href="#"> Upgrade </MDBBtn>
+              <div style={{textAlign: 'right'}}>
+                <MDBBtn href="#" color="success">Upgrade</MDBBtn>
+              </div>
             </MDBCardBody>
-            <MDBCardFooter className="text-muted">2 days ago</MDBCardFooter>
+            <MDBCardFooter className="text-muted">
+               Validity: 1year  
+            </MDBCardFooter>
           </MDBCard>
         </MDBCol>
 
@@ -66,13 +74,15 @@ export default function AccountPlans() {
                 With supporting text below as a natural lead-in to additional
                 content.
               </MDBCardText>
-              <MDBBtn href="#"> Upgrade </MDBBtn>
-
+              <div style={{textAlign: 'right'}}>
+                <MDBBtn href="#" color="success">Upgrade</MDBBtn>
+              </div>
             </MDBCardBody>
             <MDBCardFooter className="text-muted">2 days ago</MDBCardFooter>
           </MDBCard>
         </MDBCol>
       </MDBRow>
+      </div>
     </>
   );
 }

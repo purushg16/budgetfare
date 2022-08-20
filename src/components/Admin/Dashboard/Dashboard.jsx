@@ -1,40 +1,35 @@
-import {
-  MDBBtn,
-  MDBCol,
-  MDBCollapse,
-  MDBContainer,
-  MDBDropdown,
-  MDBDropdownItem,
-  MDBDropdownLink,
-  MDBDropdownMenu,
-  MDBDropdownToggle,
-  MDBIcon,
-  MDBInput,
-  MDBListGroup,
-  MDBListGroupItem,
-  MDBNavbar,
-  MDBNavbarItem,
-  MDBNavbarLink,
-  MDBNavbarNav,
-  MDBNavbarToggler,
-  MDBRow,
-} from "mdb-react-ui-kit";
-import { useState } from "react";
+import {MDBBtn, MDBContainer} from "mdb-react-ui-kit";
+import { useEffect, useState } from "react";
 import AddAirport from "./AddAirport";
 import AddDeals from "./AddDeals";
 import "./Dashboard.css";
 import DeleteAirport from "./DeleteAirport";
 import DeleteDeals from "./DeleteDeals";
 import LineIcon from "react-lineicons";
+import { useNavigate } from "react-router-dom";
 
 
 export default function Dashboard() {
-  const [window, setWindow] = useState("aa");
-  const [showNavCentred, setShowNavCentred] = useState(false);
+  const [aWindow, setWindow] = useState("aa");
+  const navigate = useNavigate();
+
+  function signOut(){
+    window.sessionStorage.removeItem('aToken');
+    window.location.reload();
+  }
+
+  useEffect(()=>{
+    if(window.sessionStorage.getItem("aToken")===null) {
+        return navigate('/admin');
+    }
+})  
 
   return (
     <section className="dashboard">
+
+
         <div id="control-bar">
+
           <div className="controls-div g726">
             <div>
               <MDBBtn className='blocky-g' color="danger" onClick={()=>{setWindow('aa')}}><p>  <LineIcon name="plane" /> + <br></br> <span>Add Airport</span> </p> </MDBBtn>
@@ -75,14 +70,18 @@ export default function Dashboard() {
         </div>
 
       <MDBContainer className="padding" style={{ padding: "5% 3% 2%" }}>
+      <div style={{ display:'flex', justifyContent:'right', marginBottom:'2%' }} > 
+        <MDBBtn color="danger" onClick={signOut}> Sign Out </MDBBtn> 
+      </div>
+
         <MDBContainer className="dash-right">
-          {window === "aa" ? (
+          {aWindow === "aa" ? (
             <AddAirport />
-          ) : window === "da" ? (
+          ) : aWindow === "da" ? (
             <DeleteAirport />
-          ) : window === "ad" ? (
+          ) : aWindow === "ad" ? (
             <AddDeals />
-          ) : window === "dd" ? (
+          ) : aWindow === "dd" ? (
             <DeleteDeals />
           ) : null}
         </MDBContainer>

@@ -24,10 +24,12 @@ function Starter() {
                 Up to 80% off your flight prices – we send deal notifications to
                 incredible destinations every week!
               </h5>
-
+              
+              <a href='#register-form'>
               <MDBBtn color="success" className="mx-2 s-getS" type="button">
-                Get Started Now
+              Get Started Now
               </MDBBtn>
+              </a>
 
               <Container
                 className="starter"

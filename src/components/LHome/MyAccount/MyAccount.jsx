@@ -15,8 +15,16 @@ import {
 import Personal from "./Personal";
 import AccountPlans from "./Plan";
 import Notifications from "./Notification";
+import { useNavigate, useLocation, Navigate} from "react-router-dom";
+
 
 export default function MyAccount() {
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  window.sessionStorage.setItem("token", 'hii');
+
   const [verticalActive, setVerticalActive] = useState("tab1");
 
   const handleVerticalClick = (value) => {
@@ -26,6 +34,18 @@ export default function MyAccount() {
 
     setVerticalActive(value);
   };
+
+  const removeToken =() =>{
+    window.sessionStorage.removeItem("token");
+  }
+
+  React.useEffect( ()=>{
+    console.log('working');
+    if(window.sessionStorage.getItem("token")===null) {
+        console.log('jeollo');
+        navigate('/~')
+    }
+  })
 
   return (
     <section id="my-account">
@@ -38,7 +58,9 @@ export default function MyAccount() {
         }}
       >
         <h4> Account Settings </h4>
-        <MDBBtn color="info" outline>
+        <MDBBtn color="info" outline
+          onClick={(e)=>{removeToken()}}
+        >
           Sign Out
         </MDBBtn>
       </div>

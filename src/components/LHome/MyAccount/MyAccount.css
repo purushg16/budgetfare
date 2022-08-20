@@ -30,7 +30,7 @@ ul.nav-tabs li {
 /* personal */
 
 @media (min-width: 768px) {
-  input[type="password"] {
+  input[type="password"]:not(".registerotp") {
     width: 100%;
   }
 }

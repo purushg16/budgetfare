@@ -2,24 +2,30 @@ import {
   MDBContainer,
   MDBNavbar,
   MDBNavbarBrand,
-  MDBNavbarToggler,
-  MDBIcon,
   MDBNavbarNav,
   MDBNavbarItem,
   MDBNavbarLink,
   MDBBtn,
-  MDBCollapse,
 } from "mdb-react-ui-kit";
-import { useState } from "react";
+// import { useEffect, useState } from "react";
 
 import "./Navbar.css";
+// import { useNavigate, useLocation, Navigate} from "react-router-dom";
 
 function NavbarTop() {
-  const [showBasic, setShowBasic] = useState(false);
+  // const [showBasic, setShowBasic] = useState(false);
+  
+  function signOut(){
+    window.sessionStorage.removeItem('token');
+    window.location.reload();
+  }
+
+  // useEffect( ()=>{
+  //   console.log(document.querySelector('.loader').style)
+  // })
 
   return (
-    <>
-      
+    <>    
       <MDBNavbar sticky expand="lg" light  className="lnavbar-top" style={{ background: '#ffffffe8' }}>
         <MDBContainer fluid>
           <MDBNavbarBrand href="#"> BudgetFare </MDBNavbarBrand>
@@ -56,7 +62,7 @@ function NavbarTop() {
             </MDBNavbarNav>
 
             <div className='button-group'>
-              <a href="#register-form"><MDBBtn outline color="success" type="button" className='nav-reg-btn' style={{ whiteSpace: 'nowrap' }}>
+              <a href="#register-form"><MDBBtn onClick={signOut} outline color="success" type="button" className='nav-reg-btn' style={{ whiteSpace: 'nowrap' }}>
                 Sign Out
               </MDBBtn>
               </a>
@@ -64,7 +70,7 @@ function NavbarTop() {
         </MDBContainer>
       </MDBNavbar>
 
-      <h3 style={{ margin: '5% 7%', textAlign: 'left' }}> Hello, Purushothaman! </h3>
+      <h3 style={{ margin: '3% 7%', textAlign: 'left' }}> Hello, Purushothaman! </h3>
     </>
   );
 }

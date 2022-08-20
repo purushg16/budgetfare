@@ -16,6 +16,10 @@ import {
 } from "mdb-react-ui-kit";
 import Select, { StylesConfig } from "react-select";
 import { useEffect, useState } from "react";
+import axios from "axios";
+import qs from "qs";
+import Swal from "sweetalert2";
+import { useNavigate, useLocation, Navigate} from "react-router-dom";
 
 const options = [
   { value: "Albenia", label: "Albenia Airport, Washington D.C, America" },
@@ -32,6 +36,13 @@ const options = [
 export default function RegisterForm(props) {
   const [query, setQuery] = useState(null);
   const [home, setHome] = useState("true");
+  const [fname, setFname] = useState("");
+  const [lname, setLname] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const navigate = useNavigate();
+  const location = useLocation();
 
   function handleCity(e) {
     if (e !== null) {
@@ -42,13 +53,58 @@ export default function RegisterForm(props) {
   }
 
   function submitForm(e) {
+
+    e.preventDefault();
     if (query === null) {
       e.preventDefault();
       document.querySelector("#home-w-p").style.display = "block";
+    } else {
+      axios.post('https://budgetfare.herokuapp.com/user/getOtp',qs.stringify({
+        email: email
+      }))
+      .then(async (res) => {
+        console.log();
+
+        const { value: otp } = await Swal.fire({
+          title: 'Enter Otp',
+          input: 'password',
+          className: 'registerotp',
+          inputLabel: 'Enter the otp from email',
+          inputPlaceholder: 'Enter otp',
+          showCancelButton: true
+        })
+        
+        if (otp) {
+          console.log(otp, fname, lname, email, password);
+          axios.post('https://budgetfare.herokuapp.com/user/register',qs.stringify({
+            otp: otp, fname: fname, lname: lname, email: email, password: password, airportId: '62ec2c4fa4e5c88abdd39a73'
+          }))
+          .then(async (res) => {
+            if(res.data.err) console.log(res.data.err);
+            console.log(res.data.token);
+            window.sessionStorage.setItem('token', res.data.token);
+            console.log('success');
+          })
+          .catch((err) => {
+          console.log(otp, fname, lname, email, password);
+            console.log(err);
+          })
+        }
+      })
+      .catch((e) => {
+          console.log(e);
+          window.sessionStorage.setItem("err", 'e.message');
+        //   if (e.message) Swal.fire(`${e.message}`, '', 'info')
+        })
     }
   }
 
   useEffect(() => {
+
+    if(window.sessionStorage.getItem("token")) {
+      navigate('/~')
+    }
+
     if (query !== null) {
       document.querySelector(".homeland-select-register").style.display =
         "none";
@@ -71,10 +127,10 @@ export default function RegisterForm(props) {
       <form onSubmit={submitForm}>
         <MDBRow className="mb-4">
           <MDBCol sm={12} md={12} lg={6} id="fName">
-            <MDBInput required id="form3Example1" label="First name*" />
+            <MDBInput required id="form3Example1" label="First name*" value={fname} onChange={(e)=> setFname(e.target.value)} />
           </MDBCol>
           <MDBCol sm={12} md={12} lg={6}>
-            <MDBInput required id="form3Example2" label="Last name*" />
+            <MDBInput required id="form3Example2" label="Last name*" value={lname} onChange={(e)=> setLname(e.target.value)} />
           </MDBCol>
         </MDBRow>
         <MDBInput
@@ -83,6 +139,9 @@ export default function RegisterForm(props) {
           type="email"
           id="form3Example3"
           label="Email address*"
+          name="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <MDBInput
           required
@@ -90,6 +149,8 @@ export default function RegisterForm(props) {
           type="password"
           id="form3Example4"
           label="Password*"
+          value={password}
+          onChange={ (e)=>setPassword(e.target.value) }
         />
 
         <MDBCheckbox
@@ -140,7 +201,7 @@ export default function RegisterForm(props) {
           </MDBBtn>
         </MDBContainer>
 
-        <p id="home-w-p" style={{ display: "none" }}>
+        <p id="home-w-p" style={{ display: "none", color:'red', fontWeight:'bold' }}>
           {" "}
           Please select a home city{" "}
         </p>
@@ -157,7 +218,7 @@ export default function RegisterForm(props) {
 
       <div className="text-center">
         <p>
-          Already have an account? <a href="#!">Login</a>
+          Already have an account? <a href="/login" style={{color:'green', fontWeight:'bold'}}>Login</a>
         </p>
       </div>
     </section>

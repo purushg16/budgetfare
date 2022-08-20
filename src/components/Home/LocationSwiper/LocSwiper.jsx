@@ -7,10 +7,12 @@ import { MDBRow, MDBCol } from "mdb-react-ui-kit";
 
 import { EffectCoverflow, Pagination } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { createApi } from "unsplash-js";
 
 import Select from "react-select";
+import SwiperCore, { Keyboard, Mousewheel } from "swiper/core";
+SwiperCore.use([Keyboard, Mousewheel]);
 
 const unsplash = new createApi({
   accessKey: "3DfbEtJCTn211Q85rJbrtECqXYMEes2wA19QXqUSb6A",
@@ -50,6 +52,8 @@ function LocationSwiper() {
     { value: "Virginia", label: "Virginia Airport, Washington D.C, America" },
   ];
 
+  const swiperRef = useRef(null)
+
   return (
     <>
       <Container className="LocSwiper">
@@ -84,8 +88,15 @@ function LocationSwiper() {
               </Stack>
             </div>
           </MDBCol>
-          <MDBCol xs={12} md={8}>
+          <MDBCol xs={12} md={8}
+          onMouseEnter={() => swiperRef.current.swiper.autoplay.stop()}
+          onMouseLeave={() => swiperRef.current.swiper.autoplay.start()}
+          >
             <Swiper
+            autoplay={{
+              disableOnInteraction: false,
+              pauseOnMouseEnter: true,
+          }}
               effect={"coverflow"}
               grabCursor={true}
               centeredSlides={true}
@@ -97,6 +108,12 @@ function LocationSwiper() {
                 modifier: 1,
                 // slideShadows: true,
               }}
+              mousewheel={{
+                forceToAxis: true,
+                // sensitivity: 100,
+                releaseOnEdges: true,
+            }}
+              freeMode
               modules={[EffectCoverflow, Pagination]}
               className="mySwiper"
             >

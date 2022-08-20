@@ -67,8 +67,8 @@ export default function Personal() {
 
           <div
             style={{
-              textAlign: 'center',
-              marginTop: "3%",
+              textAlign: 'right',
+              marginTop: "5%",
               marginBottom: "3%",
             }}
           >

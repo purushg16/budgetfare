@@ -10,6 +10,9 @@ import {
   MDBCardTitle,
 } from "mdb-react-ui-kit";
 
+import SwiperCore, { Keyboard, Mousewheel } from "swiper/core";
+SwiperCore.use([Keyboard, Mousewheel]);
+
 const unsplash = new createApi({
   accessKey: "3DfbEtJCTn211Q85rJbrtECqXYMEes2wA19QXqUSb6A",
 });
@@ -28,6 +31,10 @@ export default function Offers() {
         autoHeight={true}
         slidesPerView={3}
         className="mySwiper offer-swiper"
+        mousewheel={{ forceToAxis:'true' }}
+        autoplay={{
+          delay: 5000,
+      }}
         breakpoints={{
           320: {
             slidesPerView: 1,
