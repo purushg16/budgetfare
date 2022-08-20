@@ -11,12 +11,32 @@ import { useNavigate } from "react-router-dom";
 
 export default function Dashboard() {
   const [aWindow, setWindow] = useState("aa");
+  const [ports, fetchPorts] = useState([])
+  const [loaded, isloaded] = useState(false)
+
   const navigate = useNavigate();
 
   function signOut(){
     window.sessionStorage.removeItem('aToken');
     window.location.reload();
   }
+
+  const getData = async () => {
+    fetch('https://budgetfare.herokuapp.com/admin/viewAirport')
+      .then((res) => res.json())
+      .then((res) => {
+        // console.log(res)
+        fetchPorts(res)
+        window.sessionStorage.setItem('airports', JSON.stringify(res))
+      })
+  }
+
+  useEffect(() => {
+    if (ports.length !== 0) {
+      isloaded(true);
+    }
+      getData()
+  }, [ports])
 
   useEffect(()=>{
     if(window.sessionStorage.getItem("aToken")===null) {

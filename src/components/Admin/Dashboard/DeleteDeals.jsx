@@ -17,35 +17,38 @@ export default function DeleteDeals() {
   const [loaded, isloaded] = useState(false)
   // const [err, setErr] = React.useState('')
 
-  const getData = async () => {
-    const headers = {
-      'Authorization': window.sessionStorage.getItem('token') || window.sessionStorage.getItem('aToken'),
-      "Content-Type": "multipart/form-data",
-    };
-    
-      axios({
-        method: 'get',
-        url: 'https://budgetfare.herokuapp.com/user/internationalDeals',
-        headers: headers,
-          }).then( (res) => setDeals(res.data) ) 
-          .catch( (e) => {
-              console.log(e.message);
-              // setErr(e.message);
-          // if(e)  Swal.fire(`${e.message}`, '', 'info')
-          // else     Swal.fire('Added!', '', 'success')
-          })
-  }
 
   useEffect(() => {
-    if (deals.length !== 0) {
-      isloaded(true);
+    if (deals.length !== 0) isloaded(true);
+    else isloaded(false);
+    
+    const getData = async () => {
+      const headers = {
+        'Authorization': window.sessionStorage.getItem('aToken'),
+      };
+      
+        axios({
+          method: 'get',
+          url: 'https://budgetfare.herokuapp.com/admin/viewDeals',
+          headers: headers,
+            }).then( (res) => {
+              setDeals(res.data)
+              // console.log(res.data);
+              // console.log(res.data[0]);
+              console.log(deals);
+        } ) 
+            .catch( (e) => {
+                console.log(e.message);
+                // setErr(e.message);
+            // if(e)  Swal.fire(`${e.message}`, '', 'info')
+            // else     Swal.fire('Added!', '', 'success')
+            })
     }
     getData()
-  }, [deals])
+  }, [deals,])
 
   const headers = {
     'Authorization': window.sessionStorage.getItem('aToken'),
-    "Content-Type": "multipart/form-data",
   };
 
   function remove(e){
@@ -60,12 +63,15 @@ export default function DeleteDeals() {
       if (result.isConfirmed) {
           axios({
             method: 'post',
-            url: 'https://budgetfare.herokuapp.com//admin/deleteAirport',
+            url: 'https://budgetfare.herokuapp.com/admin/deleteDeal',
             data: {
-              code:e.target.value, 
+              id: e.target.value, 
             },
             headers: headers,
-        }).then((res) => { Swal.fire(res.data.msg) })
+        }).then((res) => { 
+          console.log(res);
+          Swal.fire(res.data.msg) 
+        })
         .catch((err) => {
           console.log(err);
           window.sessionStorage.setItem('e', err);
@@ -74,8 +80,8 @@ export default function DeleteDeals() {
         })
        }
       })
-
-  }
+  
+    }
 
     return(
       <section id='edit-section'>
@@ -96,27 +102,14 @@ export default function DeleteDeals() {
             {(deals.map((deal) => (
 
               <tr>
-
               <td>
                   <div className="d-flex align-items-center justify-content-center">
-                    <img
-                      src={`https://sweetcups-server.herokuapp.com/images/${deal.from.imgUrl}`}
-                      alt=""
-                      style={{ width: '70px', height: '70px' }}
-                      className="rounded-circle"
-                    />
                     <p> {deal.from.name} </p>
                   </div>
                 </td>
 
                 <td>
                   <div className="d-flex align-items-center justify-content-center">
-                    <img
-                      src={`https://sweetcups-server.herokuapp.com/images/${deal.to.imgUrl}`}
-                      alt=''
-                      style={{ width: '70px', height: '70px' }}
-                      className="rounded-circle"
-                    />
                     <p style={{ fontSize:'0.8rem' }}> {deal.to.name} </p>
                   </div>
                 </td>

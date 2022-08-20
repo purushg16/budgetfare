@@ -15,11 +15,12 @@ export default function DeleteAirport() {
   // const [err, setErr] = React.useState('')
 
   const getData = async () => {
-    fetch('https://budgetfare.herokuapp.com/user/airports')
+    fetch('https://budgetfare.herokuapp.com/admin/viewAirport')
       .then((res) => res.json())
       .then((res) => {
-        // console.log(res)
+        console.log(res)
         fetchPorts(res)
+        // window.sessionStorage.setItem('airports', {res})
       })
   }
 
@@ -27,17 +28,15 @@ export default function DeleteAirport() {
     if (ports.length !== 0) {
       isloaded(true);
     }
-    getData()
+      getData()
   }, [ports])
 
   const headers = {
     'Authorization': window.sessionStorage.getItem('aToken'),
-    "Content-Type": "multipart/form-data",
   };
 
   function remove(e){
-    e.preventDefault()
-    console.log(e.target.value);
+    console.log(e.target.ariaLabel);
 
     Swal.fire({
       title: 'Ready to Delete?',
@@ -49,10 +48,15 @@ export default function DeleteAirport() {
             method: 'post',
             url: 'https://budgetfare.herokuapp.com/admin/deleteAirport',
             data: {
-              code:e.target.value, 
+              code: e.target.ariaLabel 
             },
             headers: headers,
-        }).then((res) => { Swal.fire(res.data.msg) })
+        }).then((res) => { 
+          console.log(res);
+          console.log(res.data.msg);
+          if (res.data.msg) Swal.fire(`${res.data.msg}`, '', 'info')
+          else Swal.fire(res.data.msg, '', 'success')
+        })
         .catch((err) => {
           console.log(err);
           window.sessionStorage.setItem('e', err);
@@ -86,7 +90,7 @@ export default function DeleteAirport() {
                 <td>
                   <div className="d-flex align-items-center justify-content-center">
                     <img
-                      src={`https://sweetcups-server.herokuapp.com/images/${port.airportImg}`}
+                      src={`https://budgetfare.herokuapp.com/user/images/${port.imgUrl}`}
                       alt=""
                       style={{ width: '70px', height: '70px' }}
                       className="rounded-circle"
@@ -96,12 +100,12 @@ export default function DeleteAirport() {
 
                 <td>
                   <div className="ms-3">
-                    <p className="fw-bold mb-1"> {port.airportName} </p>
+                    <p className="fw-bold mb-1"> {port.name} </p>
                   </div>
                 </td>
 
                 <td>
-                  <button type="button" className="btn btn-link btn-sm btn-rounded" onClick={remove} value={port.code} aria-label={port.cakeImgUrl} >
+                  <button type="button" className="btn btn-link btn-sm btn-rounded" onClick={remove} value={port.code} aria-label={port.code} >
                     Delete
                   </button>
                 </td>

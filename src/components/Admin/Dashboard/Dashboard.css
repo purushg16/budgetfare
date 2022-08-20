@@ -9,8 +9,8 @@
 
 .dash-right {
     padding: 5%;
-    background: hsl(144, 100%, 66%);
-    border-radius: 9px;
+    /* background: rgb(239, 255, 245); */
+    /* border-radius: 9px; */
     box-shadow: 0 2px 5px 0 rgb(0 0 0 / 20%), 0 2px 15px 0 rgb(0 0 0 / 10%);
 }
 
@@ -100,3 +100,17 @@ div.table{
         width: 80em !important;
     }
 }
+
+
+/*  add deals */
+
+.checkbox-col .form-check{
+    display: flex;
+    justify-content: center;
+}
+
+.checkbox-col .form-check-input[type="checkbox"]:checked {
+    background-image: none !important;
+    border: 1px solid rgb(0, 0, 0, 0.25);
+    background-color: #14c800c7 !important;
+  }
