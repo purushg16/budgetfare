@@ -35,9 +35,9 @@ function LocationSwiper() {
         query: "rome",
       })
       .then((result) => {
-        console.log(result.response.results[0].urls.full);
+        // console.log(result.response.results[0].urls.full);
       });
-      console.log(document.querySelector('.react-select-3-listbox'));
+      // console.log(document.querySelector('.react-select-3-listbox'));
   });
 
   const options = [
@@ -89,8 +89,8 @@ function LocationSwiper() {
             </div>
           </MDBCol>
           <MDBCol xs={12} md={8}
-          onMouseEnter={() => swiperRef.current.swiper.autoplay.stop()}
-          onMouseLeave={() => swiperRef.current.swiper.autoplay.start()}
+          // onMouseEnter={() => swiperRef.current.swiper.autoplay.stop()}
+          // onMouseLeave={() => swiperRef.current.swiper.autoplay.start()}
           >
             <Swiper
             autoplay={{

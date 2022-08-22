@@ -64,8 +64,6 @@ export default function AddDeals() {
 
   options.forEach((element, i) => {
     const airportData = { 'value': element._id, 'label': element.name }
-    // airport[i].value = element._id
-    // airport[i].label = element.name
     fromAirport.push(airportData)
     console.log(i);
     console.log(element);

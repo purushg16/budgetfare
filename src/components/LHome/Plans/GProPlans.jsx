@@ -32,19 +32,19 @@ SwiperCore.use([Keyboard, Mousewheel]);
 // import required modules
 // import { Pagination } from "swiper";
 
-export default function GPlans() {
+export default function GPPlans() {
 
-  const [deals, setDeals] = useState([])
+  const [iDeals, setIDeals] = useState([])
   const [loaded, isloaded] = useState(false)
 
   useEffect(() => {
-    if (deals.length !== 0) {
+
+    if (iDeals.length !== 0) {
       isloaded(true);
     } else {
 
       const headers = {
         'Authorization': window.sessionStorage.getItem('token'),
-        "Content-Type": "multipart/form-data",
       };
 
       axios({
@@ -52,8 +52,9 @@ export default function GPlans() {
         url: 'https://budgetfare.herokuapp.com/user/internationalDeals',
         headers: headers,
       }).then((res) => { 
-        console.log(res.data);
-        setDeals(res.data)
+        // console.log(res.data);
+        if(res.data.err === null) setIDeals(res.data)
+        else console.log(iDeals);
       })
       .catch((err) => {
         console.log(err);
@@ -62,7 +63,7 @@ export default function GPlans() {
         // else     Swal.fire('Added!', '', 'success')
       })
     }
-  }, [deals, loaded])
+  }, [iDeals, loaded])
 
   const [scrollableModal, setScrollableModal] = useState(false);
 
@@ -104,7 +105,7 @@ export default function GPlans() {
 
         {
           loaded ?
-            (deals.map((deal) => (
+            (iDeals.map((deal) => (
 
         <SwiperSlide>
           <MDBCard

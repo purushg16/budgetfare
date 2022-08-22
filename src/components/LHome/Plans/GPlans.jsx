@@ -34,26 +34,27 @@ SwiperCore.use([Keyboard, Mousewheel]);
 
 export default function GPlans() {
 
-  const [deals, setDeals] = useState([])
+  const [bDeals, setBDeals] = useState([])
   const [loaded, isloaded] = useState(false)
 
   useEffect(() => {
-    if (deals.length !== 0) {
+
+    if (bDeals.length !== 0) {
       isloaded(true);
     } else {
 
       const headers = {
         'Authorization': window.sessionStorage.getItem('token'),
-        "Content-Type": "multipart/form-data",
       };
 
       axios({
         method: 'get',
-        url: 'https://budgetfare.herokuapp.com/user/globalDeals',
+        url: 'https://budgetfare.herokuapp.com/user/businessDeals',
         headers: headers,
-      }).then((res) => { 
-        console.log(res.data);
-        setDeals(res.data)
+      }).then((res) => {
+        // console.log(typeof(res.data) !== Object);
+        if(res.data.err === null) setBDeals(res.data)
+        else console.log(bDeals);
       })
       .catch((err) => {
         console.log(err);
@@ -62,7 +63,7 @@ export default function GPlans() {
         // else     Swal.fire('Added!', '', 'success')
       })
     }
-  }, [deals, loaded])
+  }, [bDeals, loaded])
 
   const [scrollableModal, setScrollableModal] = useState(false);
 
@@ -104,7 +105,7 @@ export default function GPlans() {
 
         {
           loaded ?
-            (deals.map((deal) => (
+            (bDeals.map((deal) => (
 
         <SwiperSlide>
           <MDBCard

@@ -17,7 +17,7 @@ export default function LHome() {
 
     useEffect( ()=>{
         if(window.sessionStorage.getItem("token")===null) {
-            return navigate('/');
+            return navigate('/login', {state:{msg: 'Session Expired'}});
         }
     })
 
