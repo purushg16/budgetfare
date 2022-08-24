@@ -7,15 +7,15 @@ import {
   MDBCheckbox,
   MDBBtn,
   MDBIcon,
-  MDBCard,
-  MDBCardBody,
-  MDBCardTitle,
-  MDBCardText,
   MDBContainer,
-  MDBBtnGroup,
+  // MDBCard,
+  // MDBCardBody,
+  // MDBCardTitle,
+  // MDBCardText,
+  // MDBBtnGroup,
   MDBInputGroup,
 } from "mdb-react-ui-kit";
-import Select, { StylesConfig } from "react-select";
+import Select from "react-select";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import qs from "qs";
@@ -45,14 +45,14 @@ export default function RegisterForm(props) {
   const [otp, setOTP] = useState();
   const [password, setPassword] = useState();
   const [showOTP, canShowOTP] = useState(true);
-  const [airportId, setAirportId] = useState(null);
+  const [hAirportId, setHAirportId] = useState(null);
 
   const [error, setError] = useState("");
   const [submitDisabled, setSubmit] = useState(true);
   const navigate = useNavigate();
   const [loader, isLoader] = useState(false);
 
-  var options = JSON.parse(sessionStorage.getItem("airports"));
+  var options = sessionStorage.getItem('airports') ? JSON.parse(sessionStorage.getItem("airports")) : [];
   console.log(options);
 
   var airport = []
@@ -77,10 +77,13 @@ export default function RegisterForm(props) {
   function handleOTP(e) {
     console.log(email);
 
+    // if (query === null) {
+    //   e.preventDefault();
+    //   document.querySelector("#home-w-p").style.display = "block";
+    // } else {
+    //   console.log(email);
+
     if (query === null) {
-      e.preventDefault();
-      document.querySelector("#home-w-p").style.display = "block";
-    } else {
 
     axios
       .post(
@@ -124,7 +127,7 @@ export default function RegisterForm(props) {
             lname: lname,
             email: email,
             password: password,
-            airportId: "62ec2c4fa4e5c88abdd39a73",
+            airportId: hAirportId.value,
             // home
           })
         )
@@ -145,9 +148,9 @@ export default function RegisterForm(props) {
 
   useEffect(() => {
 
-    if(airportId !== null) setQuery(airportId.label)
+    if(hAirportId !== null) setQuery(hAirportId.label)
 
-    console.log(options);
+    // console.log(options);
 
     if (query !== null) {
       document.querySelector(".homeland-select-register").style.display =
@@ -173,7 +176,7 @@ export default function RegisterForm(props) {
 
     // if (ports.length !== 0) isloaded(true);
 
-  }, [query, navigate, email, fname, lname, otp, password, options]);
+  }, [query, navigate, email, fname, lname, otp, password, options, hAirportId]);
 
   return (
     <section id="register-form" style={{ scrollMarginTop: "5em" }}>
@@ -271,8 +274,8 @@ export default function RegisterForm(props) {
             menuShouldScrollIntoView
             // menuIsOpen
             options={airport}
-            value={airportId}
-            onChange={setAirportId}
+            value={hAirportId}
+            onChange={setHAirportId}
           />
 
           <MDBContainer
@@ -289,7 +292,7 @@ export default function RegisterForm(props) {
             <MDBBtn
               onClick={() => {
                 setQuery(null);
-                setAirportId(null);
+                setHAirportId(null);
               }}
               tag="a"
               color="none"

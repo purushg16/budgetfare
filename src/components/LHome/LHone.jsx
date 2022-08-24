@@ -25,8 +25,8 @@ export default function LHome() {
         <section id="LHome">
             <NavbarTop />
             <DPlans />
-            <GPlans />
-            <GProPlans />
+            {/* <GPlans />
+            <GProPlans /> */}
             <LFooter />
             <Footer/>
             <ControlBar />

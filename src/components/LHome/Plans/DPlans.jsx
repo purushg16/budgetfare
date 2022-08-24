@@ -51,8 +51,9 @@ export default function GPlans() {
         url: 'https://budgetfare.herokuapp.com/user/domesticDeals',
         headers: headers,
       }).then((res) => { 
-        console.log(res.data);
-        if(res.data.err === null) setDDeals(res.data)
+        console.log(res);
+        // console.log(res.data.err === undefined);
+        if(res.data.err === null || res.data.err === undefined) {setDDeals(res.data);  console.log(dDeals);}
         else console.log(dDeals);
       })
       .catch((err) => {
@@ -107,13 +108,13 @@ export default function GPlans() {
             (dDeals.map((deal) => (
 
         <SwiperSlide>
-          <MDBCard
+           <MDBCard
             style={{
               boxShadow: "7px 10px 15px rgb(156 156 156 / 55%)",
               borderRadius: "5px",
             }}
           >
-            <MDBCardBody>
+            <MDBCardBody style={{position:'relative'}}>
               <MDBCardTitle
                 style={{
                   textAlign: "left",
@@ -121,8 +122,15 @@ export default function GPlans() {
                   fontWeight: "600",
                 }}
               >
-                <h5 style={{ fontWeight: "bold" }}> $567 </h5>
-                Rome, Greece
+                <h5 style={{ fontWeight: "bold" }}> ${deal.droppedPrice} 
+                  <span style={{ textDecoration:'line-through', fontSize:'0.8rem' }}> ${deal.usualPrice} </span> 
+                  { deal.budgetAirline ? <span style={{ background:'red', padding:'1%', borderRadius:'99px 0px 0px 99px', position:'fixed', right:0, top:1, color:'white', fontSize:'0.7rem', whiteSpace:'nowrap' }}> Budget </span> : null } 
+                  { deal.nonStop ? <span style={{ background:'green', padding:'1%', borderRadius:'99px 0px 0px 99px', position:'fixed', right:0, color:'white', fontSize:'0.7rem', whiteSpace:'nowrap' }}> Non Stop </span> : null }
+                  </h5>
+
+                {deal.to.name}<br></br>
+                {/* <div style={{marginTop:'5%'}}> </div> */}
+                <p style={{marginTop:'5%', marginBottom:0, fontSize:'0.6rem'}}> {deal.from.name} </p>
               </MDBCardTitle>
             </MDBCardBody>
             <MDBCardImage

@@ -42,6 +42,11 @@ export default function AddDeals() {
   const [sMonths, setSMonths] = useState(() => []);
   const [canSubmit, setCanSubmit] = useState();
 
+  // const [link, setLink] = useState({
+  //   month: String,
+  //   dealUrl: [],
+  // });
+
   const months = [
     "jan",
     "feb",
@@ -58,18 +63,18 @@ export default function AddDeals() {
   ];
 
   var options = JSON.parse(sessionStorage.getItem("airports"));
-  console.log(options);
+  // console.log(options);
 
-  var fromAirport = []
+  var fromAirport = [];
 
   options.forEach((element, i) => {
-    const airportData = { 'value': element._id, 'label': element.name }
-    fromAirport.push(airportData)
-    console.log(i);
-    console.log(element);
+    const airportData = { value: element._id, label: element.name };
+    fromAirport.push(airportData);
+    // console.log(i);
+    // console.log(element);
   });
 
-  console.log(fromAirport);
+  // console.log(fromAirport);
   var toAirport = fromAirport;
 
   //   const [prices, setPrice] = useState([{
@@ -80,20 +85,42 @@ export default function AddDeals() {
   //  const handlePrice = (e) => {
   //    setPrice((preV) => [
   //        ...preV,
-  //        {
-  //          'month': e.target.name,
-  //          'link': String(e.target.value)
-  //        },
+        //  {
+        //    'month': e.target.name,
+        //    'link': String(e.target.value)
+        //  },
   //      ])
   // }
 
-  const [dealLink, setDLink] = useState({});
+  const [dealLink, setDLink] = useState([]);
+  const [link, setLink] = useState({ month : String, link: String  })
+  const [index, setIndex] = useState();
 
   const handlePrice = (e) => {
-    setDLink((preV) => ({
-      ...preV,
-      [e.target.name]: String(e.target.value),
-    }));
+
+    // const updatedLink = [...dealLink];
+    setIndex(Number(e.target.getAttribute('label')));
+    // console.log(e.target.getAttribute('label'));
+    // console.log(updatedLink);
+
+    const newLink =  {
+      month: e.target.name,
+      link: String(e.target.value),
+    } 
+
+    setLink( (oldLink) => ({
+      ...oldLink,
+      ...newLink,
+    }))
+    console.log(index);
+
+    setDLink(oldArray => 
+      [ ...oldArray,
+        (oldArray[index] === undefined) ? newLink : oldArray[index]['link'] = e.target.value
+      ]);
+
+    // console.log(index, dealLink[index]);
+    
   };
 
   const handleMonth = (e) => {
@@ -112,6 +139,8 @@ export default function AddDeals() {
   function submit(e) {
     e.preventDefault();
     console.log("here");
+    console.log(dealLink);
+
     Swal.fire({
       title: "Ready to Upload?",
       showCancelButton: true,
@@ -150,8 +179,7 @@ export default function AddDeals() {
   }
 
   useEffect(() => {
-
-
+    // console.log(updatedLink);
     if (
       sMonths.length &&
       dealType &&
@@ -163,15 +191,11 @@ export default function AddDeals() {
     )
       setCanSubmit(false);
     else setCanSubmit(true);
-  }, [
-    sMonths,
-    dealLink,
-    dealType,
-    fromId,
-    toId,
-    droppedPrice,
-    usualPrice,
-  ]);
+    console.log(dealLink);
+    // console.log(index);
+    console.log(index, dealLink[index]);
+
+  }, [sMonths, dealLink, dealType, fromId, toId, droppedPrice, usualPrice, index]);
 
   return (
     <form onSubmit={submit}>
@@ -195,31 +219,31 @@ export default function AddDeals() {
           /> */}
 
           <Stack gap={2} className="MDBCol-md-10 mx-auto search-bar">
-                <Select
-                  // menuIsOpen
-                  placeholder='From ID'
-                  isClearable
-                  menuShouldScrollIntoView
-                  // menuIsOpen
-                  options={fromAirport}
-                  value={fromId}
-                  onChange={setfromId}
-                />
-              </Stack>
+            <Select
+              // menuIsOpen
+              placeholder="From ID"
+              isClearable
+              menuShouldScrollIntoView
+              // menuIsOpen
+              options={fromAirport}
+              value={fromId}
+              onChange={setfromId}
+            />
+          </Stack>
         </MDBCol>
         <MDBCol>
           <Stack gap={2} className="MDBCol-md-10 mx-auto search-bar">
-                <Select
-                  // menuIsOpen
-                  placeholder='To ID'
-                  isClearable
-                  menuShouldScrollIntoView
-                  // menuIsOpen
-                  options={toAirport.filter(item => item !== fromId)}
-                  value={toId}
-                  onChange={settoId}
-                />
-              </Stack>
+            <Select
+              // menuIsOpen
+              placeholder="To ID"
+              isClearable
+              menuShouldScrollIntoView
+              // menuIsOpen
+              options={toAirport.filter((item) => item !== fromId)}
+              value={toId}
+              onChange={settoId}
+            />
+          </Stack>
         </MDBCol>
       </MDBRow>
 
@@ -278,7 +302,7 @@ export default function AddDeals() {
                 <MDBBtn
                   color="light"
                   onClick={(e) => {
-                    setdealType("Domestic");
+                    setdealType("domestic");
                   }}
                   block
                 >
@@ -290,7 +314,7 @@ export default function AddDeals() {
                 <MDBBtn
                   color="light"
                   onClick={(e) => {
-                    setdealType("Global");
+                    setdealType("business");
                   }}
                   block
                 >
@@ -302,7 +326,7 @@ export default function AddDeals() {
                 <MDBBtn
                   color="light"
                   onClick={(e) => {
-                    setdealType("INT");
+                    setdealType("international");
                   }}
                   block
                 >
@@ -345,7 +369,7 @@ export default function AddDeals() {
 
       <p>
         <MDBRow className="mb-4">
-          {months.map((i) => {
+          {months.map((i, key) => {
             return (
               <MDBCol className="checkbox-col">
                 <MDBCheckbox
@@ -361,7 +385,7 @@ export default function AddDeals() {
       </p>
 
       {sMonths.length
-        ? sMonths.map((i) => {
+        ? sMonths.map((i, index) => {
             return (
               <div className="input-group mb-3">
                 <span
@@ -377,6 +401,8 @@ export default function AddDeals() {
                   type="url"
                   value={Object.keys(dealLink) ? dealLink[String(i)] : ""}
                   name={i}
+                  key={index}
+                  label={index}
                   onChange={handlePrice}
                   className="form-control rounded"
                   id="basic-url3"
