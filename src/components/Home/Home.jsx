@@ -38,8 +38,10 @@ function Home() {
     <>
     {ports.length !== 0 ? (
       <div id="home">
-        <NavbarTop />
-        <Starter />
+        <div className="landing">
+          <NavbarTop />
+          <Starter />
+        </div>
         <LocationSwiper />
         <Work />
         <RegisterForm />

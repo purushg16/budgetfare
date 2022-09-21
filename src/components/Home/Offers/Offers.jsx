@@ -8,196 +8,613 @@ import {
   MDBCardImage,
   MDBCardBody,
   MDBCardTitle,
+  MDBIcon,
+  MDBCardText,
 } from "mdb-react-ui-kit";
 
 import SwiperCore, { Keyboard, Mousewheel } from "swiper/core";
+import { Card } from "react-bootstrap";
+import { FreeMode, Pagination } from "swiper";
 SwiperCore.use([Keyboard, Mousewheel]);
 
 const unsplash = new createApi({
   accessKey: "3DfbEtJCTn211Q85rJbrtECqXYMEes2wA19QXqUSb6A",
 });
 
-
 export default function Offers() {
   return (
     <section id="offers-sec">
-      <h3 style={{ marginBottom: "7%", fontWeight: 'bold' }} >
-        BudgetFare users have been to some amazing places – at amazing prices!
-      </h3>
+      <div className="inner-wrapper" style={{padding:'5% 0'}}>
+        <h3 style={{ marginBottom: "7%", fontWeight: "bold", fontFamily:'Mackinac' }}>
+          <p>BudgetFare users have been to some </p>
+          <p>amazing places <span className="orange"> – at amazing prices! </span> </p>
+        </h3>
 
-      <Swiper
-        // watchSlidesProgress={true}
-        spaceBetween={50}
-        autoHeight={true}
-        slidesPerView={3}
-        className="mySwiper offer-swiper"
-        mousewheel={{ forceToAxis:'true' }}
-        autoplay={{
-          delay: 5000,
-      }}
-        breakpoints={{
-          320: {
-            slidesPerView: 1,
-            spaceBetween: 20,
-          },
-          480: {
-            slidesPerView: 1,
-            spaceBetween: 30,
-          },
-          500: {
-            slidesPerView: 2,
-            spaceBetween: 30,
-          },
-          860: {
-            slidesPerView: 3,
-            spaceBetween: 40,
-          },
-          861: {
-            slidesPerView: 4,
-            spaceBetween: 40,
-          },
+        <Swiper
+          autoplay={{
+            disableOnInteraction: false,
+            pauseOnMouseEnter: true,
+          }}
+          grabCursor={true}
+          // centeredSlides={true}
+          slidesPerView={"auto"}
+          spaceBetween={70}
+          mousewheel={{
+            forceToAxis: true,
+            releaseOnEdges: true,
+          }}
+          freeMode
+          modules={[FreeMode, Pagination]}
+          className="mySwiper"
+          style={{ margin: "1% 2%", height:'inherit' }}
+        >
+          <SwiperSlide style={{ width: "16.5em" }}>
+
+          <div>
+            <MDBCard
+              style={{
+                height: "21em",
+                "box-shadow": "12px 15px 20px 0px rgb(0 0 0 / 26%)",
+              }}
+            >
+              <MDBCardBody>
+                <MDBCardText
+                  style={{
+                    textAlign: "left",
+                    fontWeight: "blod",
+                    fontFamily: "poppins",
+                  }}
+                >
+                  <h3
+                    style={{
+                      fontWeight: "bold",
+                      color: "black",
+                      fontSize: "1.5rem",
+                    }}
+                  >
+                    {" "}
+                    $300{" "}
+                    <span
+                      style={{
+                        fontWeight: "normal",
+                        color: "grey",
+                        textDecoration: "line-through",
+                        fontSize: "1rem",
+                      }}
+                    >
+                      {" "}
+                      $500{" "}
+                    </span>{" "}
+                  </h3>
+                  <p
+                    style={{
+                      marginBottom: "0",
+                      fontWeight: "bold",
+                      color: "#80808087",
+                      fontSize: "0.8em",
+                    }}
+                  >
+                    {" "}
+                    London, United Kingdom{" "}
+                  </p>
+                </MDBCardText>
+              </MDBCardBody>
+              <MDBCardImage
+                style={{
+                  width: "100%",
+                  borderRadius: "0 0 9px 9px",
+                  height: "100%",
+                }}
+                src="https://mdbootstrap.com/img/new/standard/nature/182.webp"
+                alt="..."
+                position="top"
+              />
+            </MDBCard>
+              <div style={{ textAlign:'left', padding:'7% 0 3%' }}>
+                    <p> <MDBIcon fas icon="star" style={{color:'gold'}} /> <MDBIcon fas icon="star" style={{color:'gold'}} />  <MDBIcon fas icon="star" style={{color:'gold'}} />  <MDBIcon fas icon="star" style={{color:'gold'}} />  <MDBIcon fas icon="star" style={{color:'gold'}} /> </p>
+                    <p style={{ fontFamily:'poppins', fontSize:'14px' }}> "We had some leftover 💶 from our Italy 🇮🇹 trip we needed to use up, so when we heard there was an awesome deal on flights to London 🇬🇧 (Thanks @FareDrop) we decided to book it! Taking the kids on their first overseas flight will be an awesome adventure, we can’t wait until October!! #Havekidswilltravel #London2019" </p>
+                    <p style={{ fontWeight:'bold', fontFamily:'poppins' }}>  @puryshhere </p>
+                </div>
+            </div>
+          </SwiperSlide>
+
+          <SwiperSlide style={{ width: "16.5em" }}>
+
+<div>
+  <MDBCard
+    style={{
+      height: "21em",
+      "box-shadow": "12px 15px 20px 0px rgb(0 0 0 / 26%)",
+    }}
+  >
+    <MDBCardBody>
+      <MDBCardText
+        style={{
+          textAlign: "left",
+          fontWeight: "blod",
+          fontFamily: "poppins",
         }}
       >
-        <SwiperSlide>
-          <MDBCard style={{ boxShadow: '7px 10px 15px rgb(156 156 156 / 55%)', borderRadius: '5px' }}>
-            <MDBCardBody>
-              <MDBCardTitle style={{ textAlign: 'left', fontSize: '0.8rem', fontWeight: '600' }}>
-                <h5 style={{ fontWeight: 'bold' }}> $567 </h5> 
-                Rome, Greece
-              </MDBCardTitle>
-            </MDBCardBody>
-            <MDBCardImage
-              style={{ borderRadius: "0px 0px 5px 5px", height: '250px' }}
-              src="https://images.unsplash.com/photo-1552832230-c0197dd311b5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cm9tZXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60"
-              alt="..."
-              position="top"
-            />
-          </MDBCard>
-        </SwiperSlide>
+        <h3
+          style={{
+            fontWeight: "bold",
+            color: "black",
+            fontSize: "1.5rem",
+          }}
+        >
+          {" "}
+          $300{" "}
+          <span
+            style={{
+              fontWeight: "normal",
+              color: "grey",
+              textDecoration: "line-through",
+              fontSize: "1rem",
+            }}
+          >
+            {" "}
+            $500{" "}
+          </span>{" "}
+        </h3>
+        <p
+          style={{
+            marginBottom: "0",
+            fontWeight: "bold",
+            color: "#80808087",
+            fontSize: "0.8em",
+          }}
+        >
+          {" "}
+          London, United Kingdom{" "}
+        </p>
+      </MDBCardText>
+    </MDBCardBody>
+    <MDBCardImage
+      style={{
+        width: "100%",
+        borderRadius: "0 0 9px 9px",
+        height: "100%",
+      }}
+      src="https://mdbootstrap.com/img/new/standard/nature/182.webp"
+      alt="..."
+      position="top"
+    />
+  </MDBCard>
+    <div style={{ textAlign:'left', padding:'7% 0 3%' }}>
+          <p> <MDBIcon fas icon="star" style={{color:'gold'}} /> <MDBIcon fas icon="star" style={{color:'gold'}} />  <MDBIcon fas icon="star" style={{color:'gold'}} />  <MDBIcon fas icon="star" style={{color:'gold'}} />  <MDBIcon fas icon="star" style={{color:'gold'}} /> </p>
+          <p style={{ fontFamily:'poppins', fontSize:'14px' }}> "We had some leftover 💶 from our Italy 🇮🇹 trip we needed to use up, so when we heard there was an awesome deal on flights to London 🇬🇧 (Thanks @FareDrop) we decided to book it! Taking the kids on their first overseas flight will be an awesome adventure, we can’t wait until October!! #Havekidswilltravel #London2019" </p>
+          <p style={{ fontWeight:'bold', fontFamily:'poppins' }}>  @puryshhere </p>
+      </div>
+  </div>
+</SwiperSlide>
 
-        <SwiperSlide>
-          <MDBCard style={{ boxShadow: '7px 10px 15px rgb(156 156 156 / 55%)', borderRadius: '5px' }}>
-            <MDBCardBody>
-              <MDBCardTitle style={{ textAlign: 'left', fontSize: '0.8rem', fontWeight: '600' }}>
-                <h5 style={{ fontWeight: 'bold' }}> $567 </h5> 
-                Paris, France
-              </MDBCardTitle>
-            </MDBCardBody>
-            <MDBCardImage
-              style={{ borderRadius: "0px 0px 5px 5px", height: '250px' }}
-              src="https://images.unsplash.com/photo-1502602898657-3e91760cbb34?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGFyaXN8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
-              alt="..."
-              position="top"
-            />
-          </MDBCard>
-        </SwiperSlide>
+<SwiperSlide style={{ width: "16.5em" }}>
 
-        <SwiperSlide>
-          <MDBCard style={{ boxShadow: '7px 10px 15px rgb(156 156 156 / 55%)', borderRadius: '5px' }}>
-            <MDBCardBody>
-              <MDBCardTitle style={{ textAlign: 'left', fontSize: '0.8rem', fontWeight: '600' }}>
-                <h5 style={{ fontWeight: 'bold' }}> $567 </h5> 
-                NY, America
-              </MDBCardTitle>
-            </MDBCardBody>
-            <MDBCardImage
-              style={{ borderRadius: "0px 0px 5px 5px", height: '250px' }}
-              src="https://images.unsplash.com/photo-1518563172008-e56c5dfbaef6?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bnl8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
-              alt="..."
-              position="top"
-            />
-          </MDBCard>
-        </SwiperSlide>
+          <div>
+            <MDBCard
+              style={{
+                height: "21em",
+                "box-shadow": "12px 15px 20px 0px rgb(0 0 0 / 26%)",
+              }}
+            >
+              <MDBCardBody>
+                <MDBCardText
+                  style={{
+                    textAlign: "left",
+                    fontWeight: "blod",
+                    fontFamily: "poppins",
+                  }}
+                >
+                  <h3
+                    style={{
+                      fontWeight: "bold",
+                      color: "black",
+                      fontSize: "1.5rem",
+                    }}
+                  >
+                    {" "}
+                    $300{" "}
+                    <span
+                      style={{
+                        fontWeight: "normal",
+                        color: "grey",
+                        textDecoration: "line-through",
+                        fontSize: "1rem",
+                      }}
+                    >
+                      {" "}
+                      $500{" "}
+                    </span>{" "}
+                  </h3>
+                  <p
+                    style={{
+                      marginBottom: "0",
+                      fontWeight: "bold",
+                      color: "#80808087",
+                      fontSize: "0.8em",
+                    }}
+                  >
+                    {" "}
+                    London, United Kingdom{" "}
+                  </p>
+                </MDBCardText>
+              </MDBCardBody>
+              <MDBCardImage
+                style={{
+                  width: "100%",
+                  borderRadius: "0 0 9px 9px",
+                  height: "100%",
+                }}
+                src="https://mdbootstrap.com/img/new/standard/nature/182.webp"
+                alt="..."
+                position="top"
+              />
+            </MDBCard>
+              <div style={{ textAlign:'left', padding:'7% 0 3%' }}>
+                    <p> <MDBIcon fas icon="star" style={{color:'gold'}} /> <MDBIcon fas icon="star" style={{color:'gold'}} />  <MDBIcon fas icon="star" style={{color:'gold'}} />  <MDBIcon fas icon="star" style={{color:'gold'}} />  <MDBIcon fas icon="star" style={{color:'gold'}} /> </p>
+                    <p style={{ fontFamily:'poppins', fontSize:'14px' }}> "Thank Kara & Nate! We love FareDrop! We just booked a trip to Frankfurt to see family in October! $763 round trip for us all to fly 🙉🙊🤗" </p>
+                    <p style={{ fontWeight:'bold', fontFamily:'poppins' }}>  @puryshhere </p>
+                </div>
+            </div>
+          </SwiperSlide>
 
-        <SwiperSlide>
-          <MDBCard style={{ boxShadow: '7px 10px 15px rgb(156 156 156 / 55%)', borderRadius: '5px' }}>
-            <MDBCardBody>
-              <MDBCardTitle style={{ textAlign: 'left', fontSize: '0.8rem', fontWeight: '600' }}>
-                <h5 style={{ fontWeight: 'bold' }}> $567 </h5> 
-                Morocco, Russia
-              </MDBCardTitle>
-            </MDBCardBody>
-            <MDBCardImage
-              style={{ borderRadius: "0px 0px 5px 5px", height: '250px' }}
-              src="https://images.unsplash.com/photo-1489749798305-4fea3ae63d43?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bW9yb2Njb3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60"
-              alt="..."
-              position="top"
-            />
-          </MDBCard>
-        </SwiperSlide>
+          <SwiperSlide style={{ width: "16.5em" }}>
+
+          <div>
+            <MDBCard
+              style={{
+                height: "21em",
+                "box-shadow": "12px 15px 20px 0px rgb(0 0 0 / 26%)",
+              }}
+            >
+              <MDBCardBody>
+                <MDBCardText
+                  style={{
+                    textAlign: "left",
+                    fontWeight: "blod",
+                    fontFamily: "poppins",
+                  }}
+                >
+                  <h3
+                    style={{
+                      fontWeight: "bold",
+                      color: "black",
+                      fontSize: "1.5rem",
+                    }}
+                  >
+                    {" "}
+                    $300{" "}
+                    <span
+                      style={{
+                        fontWeight: "normal",
+                        color: "grey",
+                        textDecoration: "line-through",
+                        fontSize: "1rem",
+                      }}
+                    >
+                      {" "}
+                      $500{" "}
+                    </span>{" "}
+                  </h3>
+                  <p
+                    style={{
+                      marginBottom: "0",
+                      fontWeight: "bold",
+                      color: "#80808087",
+                      fontSize: "0.8em",
+                    }}
+                  >
+                    {" "}
+                    London, United Kingdom{" "}
+                  </p>
+                </MDBCardText>
+              </MDBCardBody>
+              <MDBCardImage
+                style={{
+                  width: "100%",
+                  borderRadius: "0 0 9px 9px",
+                  height: "100%",
+                }}
+                src="https://mdbootstrap.com/img/new/standard/nature/182.webp"
+                alt="..."
+                position="top"
+              />
+            </MDBCard>
+              <div style={{ textAlign:'left', padding:'7% 0 3%' }}>
+                    <p> <MDBIcon fas icon="star" style={{color:'gold'}} /> <MDBIcon fas icon="star" style={{color:'gold'}} />  <MDBIcon fas icon="star" style={{color:'gold'}} />  <MDBIcon fas icon="star" style={{color:'gold'}} />  <MDBIcon fas icon="star" style={{color:'gold'}} /> </p>
+                    <p style={{ fontFamily:'poppins', fontSize:'14px' }}> "Just booked a flight to Singapore for over $400 under the regular price using FareDrop! Can’t wait to check this off my bucket list! #faredrop @karaandnate" </p>
+                    <p style={{ fontWeight:'bold', fontFamily:'poppins' }}>  @puryshhere </p>
+                </div>
+            </div>
+          </SwiperSlide>
+
+          <SwiperSlide style={{ width: "16.5em" }}>
+
+          <div>
+            <MDBCard
+              style={{
+                height: "21em",
+                "box-shadow": "12px 15px 20px 0px rgb(0 0 0 / 26%)",
+              }}
+            >
+              <MDBCardBody>
+                <MDBCardText
+                  style={{
+                    textAlign: "left",
+                    fontWeight: "blod",
+                    fontFamily: "poppins",
+                  }}
+                >
+                  <h3
+                    style={{
+                      fontWeight: "bold",
+                      color: "black",
+                      fontSize: "1.5rem",
+                    }}
+                  >
+                    {" "}
+                    $300{" "}
+                    <span
+                      style={{
+                        fontWeight: "normal",
+                        color: "grey",
+                        textDecoration: "line-through",
+                        fontSize: "1rem",
+                      }}
+                    >
+                      {" "}
+                      $500{" "}
+                    </span>{" "}
+                  </h3>
+                  <p
+                    style={{
+                      marginBottom: "0",
+                      fontWeight: "bold",
+                      color: "#80808087",
+                      fontSize: "0.8em",
+                    }}
+                  >
+                    {" "}
+                    London, United Kingdom{" "}
+                  </p>
+                </MDBCardText>
+              </MDBCardBody>
+              <MDBCardImage
+                style={{
+                  width: "100%",
+                  borderRadius: "0 0 9px 9px",
+                  height: "100%",
+                }}
+                src="https://mdbootstrap.com/img/new/standard/nature/182.webp"
+                alt="..."
+                position="top"
+              />
+            </MDBCard>
+              <div style={{ textAlign:'left', padding:'7% 0 3%' }}>
+                    <p> <MDBIcon fas icon="star" style={{color:'gold'}} /> <MDBIcon fas icon="star" style={{color:'gold'}} />  <MDBIcon fas icon="star" style={{color:'gold'}} />  <MDBIcon fas icon="star" style={{color:'gold'}} />  <MDBIcon fas icon="star" style={{color:'gold'}} /> </p>
+                    <p style={{ fontFamily:'poppins', fontSize:'14px' }}> "First @faredrop flight Den - Beijing thanks @karaandnate rt on United $311!!" </p>
+                    <p style={{ fontWeight:'bold', fontFamily:'poppins' }}>  @puryshhere </p>
+                </div>
+            </div>
+          </SwiperSlide>
 
 
-        <SwiperSlide>
-          <MDBCard style={{ boxShadow: '7px 10px 15px rgb(156 156 156 / 55%)', borderRadius: '5px' }}>
-            <MDBCardBody>
-              <MDBCardTitle style={{ textAlign: 'left', fontSize: '0.8rem', fontWeight: '600' }}>
-                <h5 style={{ fontWeight: 'bold' }}> $567 </h5> 
-                 Netherlands
-              </MDBCardTitle>
-            </MDBCardBody>
-            <MDBCardImage
-              style={{ borderRadius: "0px 0px 5px 5px", height: '250px' }}
-              src="https://images.unsplash.com/photo-1605704320412-5c3255bf47a9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8bmV0aGVybGFuZHxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=600&q=60"
-              alt="..."
-              position="top"
-            />
-          </MDBCard>
-        </SwiperSlide>
+          <SwiperSlide style={{ width: "16.5em" }}>
+
+          <div>
+            <MDBCard
+              style={{
+                height: "21em",
+                "box-shadow": "12px 15px 20px 0px rgb(0 0 0 / 26%)",
+              }}
+            >
+              <MDBCardBody>
+                <MDBCardText
+                  style={{
+                    textAlign: "left",
+                    fontWeight: "blod",
+                    fontFamily: "poppins",
+                  }}
+                >
+                  <h3
+                    style={{
+                      fontWeight: "bold",
+                      color: "black",
+                      fontSize: "1.5rem",
+                    }}
+                  >
+                    {" "}
+                    $300{" "}
+                    <span
+                      style={{
+                        fontWeight: "normal",
+                        color: "grey",
+                        textDecoration: "line-through",
+                        fontSize: "1rem",
+                      }}
+                    >
+                      {" "}
+                      $500{" "}
+                    </span>{" "}
+                  </h3>
+                  <p
+                    style={{
+                      marginBottom: "0",
+                      fontWeight: "bold",
+                      color: "#80808087",
+                      fontSize: "0.8em",
+                    }}
+                  >
+                    {" "}
+                    London, United Kingdom{" "}
+                  </p>
+                </MDBCardText>
+              </MDBCardBody>
+              <MDBCardImage
+                style={{
+                  width: "100%",
+                  borderRadius: "0 0 9px 9px",
+                  height: "100%",
+                }}
+                src="https://mdbootstrap.com/img/new/standard/nature/182.webp"
+                alt="..."
+                position="top"
+              />
+            </MDBCard>
+              <div style={{ textAlign:'left', padding:'7% 0 3%' }}>
+                    <p> <MDBIcon fas icon="star" style={{color:'gold'}} /> <MDBIcon fas icon="star" style={{color:'gold'}} />  <MDBIcon fas icon="star" style={{color:'gold'}} />  <MDBIcon fas icon="star" style={{color:'gold'}} />  <MDBIcon fas icon="star" style={{color:'gold'}} /> </p>
+                    <p style={{ fontFamily:'poppins', fontSize:'14px' }}> "FareDrop is so cool! We’re broke college students, so finding these tickets for cheap is insane! Grand total Boston to Madrid to Milan and back to Boston was around $450" </p>
+                    <p style={{ fontWeight:'bold', fontFamily:'poppins' }}>  @puryshhere </p>
+                </div>
+            </div>
+          </SwiperSlide>
 
 
-        <SwiperSlide>
-          <MDBCard style={{ boxShadow: '7px 10px 15px rgb(156 156 156 / 55%)', borderRadius: '5px' }}>
-            <MDBCardBody>
-              <MDBCardTitle style={{ textAlign: 'left', fontSize: '0.8rem', fontWeight: '600' }}>
-                <h5 style={{ fontWeight: 'bold' }}> $567 </h5> 
-                Agra, India
-              </MDBCardTitle>
-            </MDBCardBody>
-            <MDBCardImage
-              style={{ borderRadius: "0px 0px 5px 5px", height: '250px' }}
-              src="https://images.unsplash.com/photo-1587135941948-670b381f08ce?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dGFqJTIwbWFoYWx8ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
-              alt="..."
-              position="top"
-            />
-          </MDBCard>
-        </SwiperSlide>
 
-        <SwiperSlide>
-          <MDBCard style={{ boxShadow: '7px 10px 15px rgb(156 156 156 / 55%)', borderRadius: '5px' }}>
-            <MDBCardBody>
-              <MDBCardTitle style={{ textAlign: 'left', fontSize: '0.8rem', fontWeight: '600' }}>
-                <h5 style={{ fontWeight: 'bold' }}> $567 </h5> 
-                Pakistan
-              </MDBCardTitle>
-            </MDBCardBody>
-            <MDBCardImage
-              style={{ borderRadius: "0px 0px 5px 5px", height: '250px' }}
-              src="https://images.unsplash.com/photo-1470756544705-1848092fbe5f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8cGFraXN0YW58ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
-              alt="..."
-              position="top"
-            />
-          </MDBCard>
-        </SwiperSlide>
+          <SwiperSlide style={{ width: "16.5em" }}>
 
-        <SwiperSlide>
-          <MDBCard style={{ boxShadow: '7px 10px 15px rgb(156 156 156 / 55%)', borderRadius: '5px' }}>
-            <MDBCardBody>
-              <MDBCardTitle style={{ textAlign: 'left', fontSize: '0.8rem', fontWeight: '600' }}>
-                <h5 style={{ fontWeight: 'bold' }}> $567 </h5> 
-                Tokyo, Japan
-              </MDBCardTitle>
-            </MDBCardBody>
-            <MDBCardImage
-              style={{ borderRadius: "0px 0px 5px 5px", height: '250px' }}
-              src="https://images.unsplash.com/photo-1540959733332-eab4deabeeaf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dG9reW98ZW58MHx8MHx8&auto=format&fit=crop&w=600&q=60"
-              alt="..."
-              position="top"
-            />
-          </MDBCard>
-        </SwiperSlide>
+          <div>
+            <MDBCard
+              style={{
+                height: "21em",
+                "box-shadow": "12px 15px 20px 0px rgb(0 0 0 / 26%)",
+              }}
+            >
+              <MDBCardBody>
+                <MDBCardText
+                  style={{
+                    textAlign: "left",
+                    fontWeight: "blod",
+                    fontFamily: "poppins",
+                  }}
+                >
+                  <h3
+                    style={{
+                      fontWeight: "bold",
+                      color: "black",
+                      fontSize: "1.5rem",
+                    }}
+                  >
+                    {" "}
+                    $300{" "}
+                    <span
+                      style={{
+                        fontWeight: "normal",
+                        color: "grey",
+                        textDecoration: "line-through",
+                        fontSize: "1rem",
+                      }}
+                    >
+                      {" "}
+                      $500{" "}
+                    </span>{" "}
+                  </h3>
+                  <p
+                    style={{
+                      marginBottom: "0",
+                      fontWeight: "bold",
+                      color: "#80808087",
+                      fontSize: "0.8em",
+                    }}
+                  >
+                    {" "}
+                    London, United Kingdom{" "}
+                  </p>
+                </MDBCardText>
+              </MDBCardBody>
+              <MDBCardImage
+                style={{
+                  width: "100%",
+                  borderRadius: "0 0 9px 9px",
+                  height: "100%",
+                }}
+                src="https://mdbootstrap.com/img/new/standard/nature/182.webp"
+                alt="..."
+                position="top"
+              />
+            </MDBCard>
+              <div style={{ textAlign:'left', padding:'7% 0 3%' }}>
+                    <p> <MDBIcon fas icon="star" style={{color:'gold'}} /> <MDBIcon fas icon="star" style={{color:'gold'}} />  <MDBIcon fas icon="star" style={{color:'gold'}} />  <MDBIcon fas icon="star" style={{color:'gold'}} />  <MDBIcon fas icon="star" style={{color:'gold'}} /> </p>
+                    <p style={{ fontFamily:'poppins', fontSize:'14px' }}> "Scored a family of four trip to Ireland from Seattle for under $1600, thanks @karaandnate for #Faredrop" </p>
+                    <p style={{ fontWeight:'bold', fontFamily:'poppins' }}>  @puryshhere </p>
+                </div>
+            </div>
+          </SwiperSlide>
 
-        
-      </Swiper>
+
+          <SwiperSlide style={{ width: "16.5em" }}>
+
+          <div>
+            <MDBCard
+              style={{
+                height: "21em",
+                "box-shadow": "12px 15px 20px 0px rgb(0 0 0 / 26%)",
+              }}
+            >
+              <MDBCardBody>
+                <MDBCardText
+                  style={{
+                    textAlign: "left",
+                    fontWeight: "blod",
+                    fontFamily: "poppins",
+                  }}
+                >
+                  <h3
+                    style={{
+                      fontWeight: "bold",
+                      color: "black",
+                      fontSize: "1.5rem",
+                    }}
+                  >
+                    {" "}
+                    $300{" "}
+                    <span
+                      style={{
+                        fontWeight: "normal",
+                        color: "grey",
+                        textDecoration: "line-through",
+                        fontSize: "1rem",
+                      }}
+                    >
+                      {" "}
+                      $500{" "}
+                    </span>{" "}
+                  </h3>
+                  <p
+                    style={{
+                      marginBottom: "0",
+                      fontWeight: "bold",
+                      color: "#80808087",
+                      fontSize: "0.8em",
+                    }}
+                  >
+                    {" "}
+                    London, United Kingdom{" "}
+                  </p>
+                </MDBCardText>
+              </MDBCardBody>
+              <MDBCardImage
+                style={{
+                  width: "100%",
+                  borderRadius: "0 0 9px 9px",
+                  height: "100%",
+                }}
+                src="https://mdbootstrap.com/img/new/standard/nature/182.webp"
+                alt="..."
+                position="top"
+              />
+            </MDBCard>
+              <div style={{ textAlign:'left', padding:'7% 0 3%' }}>
+                    <p> <MDBIcon fas icon="star" style={{color:'gold'}} /> <MDBIcon fas icon="star" style={{color:'gold'}} />  <MDBIcon fas icon="star" style={{color:'gold'}} />  <MDBIcon fas icon="star" style={{color:'gold'}} />  <MDBIcon fas icon="star" style={{color:'gold'}} /> </p>
+                    <p style={{ fontFamily:'poppins', fontSize:'14px' }}>"Hello Nate and Kara! I just booked a flight to Madrid from Fayetteville, AR for $555, normally $1150! And it’s a Delta flight so more Skymiles for me😁! It would have been $535 if I hadn’t waited a day also. I’m so excited to visit Spain and couldn’t have found this great deal without FareDrop." </p>
+                    <p style={{ fontWeight:'bold', fontFamily:'poppins' }}>  @puryshhere </p>
+                </div>
+            </div>
+          </SwiperSlide>
+
+
+        </Swiper>
+      </div>
     </section>
   );
 }

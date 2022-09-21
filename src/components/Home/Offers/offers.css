@@ -1,5 +1,5 @@
 #offers-sec{
-    margin: 4%;
+    /* margin: 4%; */
 }
 
 .offer-swiper{
@@ -9,4 +9,25 @@
 #offers-sec .swiper-slide {
     height: 400px !important;
     /* background: white !important; */
+}
+
+
+.inner-wrapper{
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 1000px;
+    flex-wrap: nowrap;
+
+    background: url('./bg.svg');
+
+}
+
+span.orange{
+    background-position: 4px -3px;
+    /* background-image: url('./linearrow.svg'); */
+    background-size: 133px 100px;
+    background-repeat: no-repeat;
+    padding-bottom: 16px;
+    color: #F3BA8E;
+    text-decoration: underline;
 }

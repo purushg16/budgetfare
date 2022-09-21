@@ -52,14 +52,20 @@ export default function RegisterForm(props) {
   const navigate = useNavigate();
   const [loader, isLoader] = useState(false);
 
-  var options = sessionStorage.getItem('airports') ? JSON.parse(sessionStorage.getItem("airports")) : [];
+  var options = sessionStorage.getItem("airports")
+    ? JSON.parse(sessionStorage.getItem("airports"))
+    : [];
   console.log(options);
 
-  var airport = []
+  var airport = [];
 
   options.forEach((element, i) => {
-    const airportData = { 'value': element._id, 'label': element.name }
-    airport.push(airportData)
+    const str = element.name.toLowerCase().replace(/\b[a-z]/g, function(letter) {
+      return letter.toUpperCase();
+    });
+
+    const airportData = { value: element._id, label: str };
+    airport.push(airportData);
     // console.log(i);
     // console.log(element);
   });
@@ -84,30 +90,29 @@ export default function RegisterForm(props) {
     //   console.log(email);
 
     if (query === null) {
-
-    axios
-      .post(
-        "https://budgetfare.herokuapp.com/user/getOtp",
-        qs.stringify({
-          email: email,
+      axios
+        .post(
+          "https://budgetfare.herokuapp.com/user/getOtp",
+          qs.stringify({
+            email: email,
+          })
+        )
+        .then(async (res) => {
+          canShowOTP(false);
+          console.log(res);
+          setFname("");
+          setLname("");
+          setPassword("");
         })
-      )
-      .then(async (res) => {
-        canShowOTP(false);
-        console.log(res);
-        setFname("");
-        setLname("");
-        setPassword("");
-      })
-      .catch((e) => {
-        console.log(e);
-        window.sessionStorage.setItem("err", e.message);
-        if (e.response.data) Swal.fire(`${e.response.data}`, "", "info");
-        isLoader(false);
-        setFname("");
-        setLname("");
-        setPassword("");
-      });
+        .catch((e) => {
+          console.log(e);
+          window.sessionStorage.setItem("err", e.message);
+          if (e.response.data) Swal.fire(`${e.response.data}`, "", "info");
+          isLoader(false);
+          setFname("");
+          setLname("");
+          setPassword("");
+        });
     }
   }
 
@@ -140,25 +145,29 @@ export default function RegisterForm(props) {
         })
         .catch((err) => {
           console.log(err);
-          if(err) { setError(err.response.data.err); isLoader(false); setSubmit(false); console.log(error); }
+          if (err) {
+            setError(err.response.data.err);
+            isLoader(false);
+            setSubmit(false);
+            console.log(error);
+          }
           // console.log(otp, fname, lname, email, password);
         });
     }
   }
 
   useEffect(() => {
-
-    if(hAirportId !== null) setQuery(hAirportId.label)
+    if (hAirportId !== null) setQuery(hAirportId.label);
 
     // console.log(options);
 
     if (query !== null) {
-      document.querySelector(".homeland-select-register").style.display =
+      document.querySelector(".before-select").style.display =
         "none";
       document.querySelector(".homeland-card").style.display = "block";
       document.querySelector("#home-w-p").style.display = "none";
     } else {
-      document.querySelector(".homeland-select-register").style.display =
+      document.querySelector(".before-select").style.display =
         "block";
       document.querySelector(".homeland-card").style.display = "none";
     }
@@ -175,109 +184,117 @@ export default function RegisterForm(props) {
     }
 
     // if (ports.length !== 0) isloaded(true);
-
-  }, [query, navigate, email, fname, lname, otp, password, options, hAirportId]);
+  }, [
+    query,
+    navigate,
+    email,
+    fname,
+    lname,
+    otp,
+    password,
+    options,
+    hAirportId,
+  ]);
 
   return (
     <section id="register-form" style={{ scrollMarginTop: "5em" }}>
-      <h3 style={{ marginBottom: "7%", fontWeight: "bold" }}>
+      <h3
+        style={{
+          marginBottom: "5%",
+          fontWeight: "bold",
+          fontFamily: "MackinacMini",
+          color: "black",
+        }}
+      >
         {" "}
-        Create An Account for Free{" "}
+        Create an account to get started.{" "}
       </h3>
-      <p> Please verify your email first. </p>
-
+      {/* <p> Please verify your email first. </p> */}
 
       <form onSubmit={submitForm}>
-      {error ? (
-            <p style={{ color: "red", fontWeight: "bold" }}> {error} </p>
-          ) : null}
+        {error ? (
+          <p style={{ color: "red", fontWeight: "bold" }}> {error} </p>
+        ) : null}
         <MDBRow className="mb-4">
-          <MDBCol sm={12} md={12} lg={8}>
-            <MDBInputGroup className="w-100">
-              <input
-                className="form-control"
-                placeholder="Email address*"
-                style={{ background: "transparent" }}
-                required
-                type="email"
-                name="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              />
-              <MDBBtn outline onClick={handleOTP} color="success" type="button">
-                {" "}
-                Send OTP
-              </MDBBtn>
-            </MDBInputGroup>
-          </MDBCol>
-          <MDBCol sm={12} md={12} lg={4}>
+          <MDBCol>
             <MDBInput
-              // required
-              className="mb-4"
-              type="number"
-              id="form3Example3"
-              label="otp*"
-              name="otp"
+              id="form3Example1"
+              label="First name*"
               style={{ background: "transparent" }}
-              value={otp}
-              onChange={(e) => setOTP(e.target.value)}
-              disabled={showOTP}
+              required
+              value={fname}
+              onChange={(e) => setFname(e.target.value)}
+            />
+          </MDBCol>
+
+          <MDBCol>
+            <MDBInput
+              id="form3Example2"
+              label="Last name*"
+              style={{ background: "transparent" }}
+              required
+              value={fname}
+              onChange={(e) => setLname(e.target.value)}
             />
           </MDBCol>
         </MDBRow>
 
+        <MDBInput
+          className="mb-4"
+          type="email"
+          id="form3Example3"
+          label="Email address"
+          style={{ background: "transparent" }}
+          required
+          name="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <MDBInput
+          className="mb-4"
+          type="password"
+          id="form3Example4"
+          label="Password*"
+          required
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+
+        <MDBCheckbox
+          wrapperClass="d-flex justify-content-center mb-4"
+          id="form3Example5"
+          label="BudgetFare can use my information to get in touch with me and to provide me with updates and other marketing information"
+          defaultChecked
+        />
+
+        <div className="before-select"
+          style={{
+            marginBottom:'3%',
+            textAlign:'left'
+          }}
+        >
+          <p style={{ textAlign:'left', color:'black', fontFamily:'poppins' }}> Select your home airport </p>
+          <div
+            className="input-group rounded search-group"
+            style={{ flexWrap: "nowrap" }}
+          >
+            <span className="input-group-text" id="search-addon">
+              <i className="fas fa-search"></i>
+            </span>
+            <Select
+              className="homeland-select-register"
+              placeholder="Select by U.S.city, airport or Zipcode"
+              isClearable
+              menuShouldScrollIntoView
+              options={airport}
+              value={hAirportId}
+              onChange={setHAirportId}
+              style={{}}
+            />
+          </div>
+        </div>
+
         <div id="second-form">
-          <MDBRow className="mb-4">
-            <MDBCol sm={12} md={12} lg={6} id="fName">
-              <MDBInput
-                required
-                id="form3Example1"
-                label="First name*"
-                value={fname}
-                onChange={(e) => setFname(e.target.value)}
-              />
-            </MDBCol>
-            <MDBCol sm={12} md={12} lg={6}>
-              <MDBInput
-                required
-                id="form3Example2"
-                label="Last name*"
-                value={lname}
-                onChange={(e) => setLname(e.target.value)}
-              />
-            </MDBCol>
-          </MDBRow>
-
-          <MDBInput
-            required
-            className="mb-4"
-            type="password"
-            id="form3Example4"
-            label="Password*"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-
-          <MDBCheckbox
-            required
-            name="flexCheck"
-            value=""
-            id="flexCheckDefault"
-            label="BudgetFare can use my information to get in touch with me and to provide me with updates and other marketing information"
-          />
-
-          <Select
-            className="homeland-select-register"
-            blurInputOnSelect
-            placeholder="Select Your Home City"
-            isClearable
-            menuShouldScrollIntoView
-            // menuIsOpen
-            options={airport}
-            value={hAirportId}
-            onChange={setHAirportId}
-          />
-
           <MDBContainer
             className="homeland-card"
             style={{ position: "relative" }}
@@ -287,7 +304,7 @@ export default function RegisterForm(props) {
               style={{ position: "relative", marginBottom: 0, margin: "0% 5%" }}
             >
               {" "}
-              <MDBIcon fas icon="home" /> {query} {" "}
+              <MDBIcon fas icon="home" /> {query}{" "}
             </p>
             <MDBBtn
               onClick={() => {

@@ -4,27 +4,41 @@ import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 
 
+import s1 from './hiw-step1.png';
+import s2 from './hiw-step2.png';
+import s3 from './hiw-step3.png';
+
 export default function Work(props) {
   return (
     <section id="works">
-      <h3 style={{ fontWeight: 'bold'}}> How It Works </h3>
+      <h3 style={{fontFamily:'MackinacMed', color:'black'}}> How It Works </h3>
+      <hr style={{
+            borderTop: '1.5px solid rgb(34, 34, 34)',
+            marginBottom: '1.5em',
+            width: '200px',
+            margin: "auto",
+            opacity:1
+      }} />
 
-      <Container style={{ marginTop: '5%', padding: '0% 3%' }}>
+      <Container style={{ marginTop: '1%', padding: '0% 3%' }}>
         <Row>
           <Col sm={12} md={4} lg={4} className='work-col'>
-            <h5 style={{ fontWeight: 'bold'}} > 1.Select your home airports </h5>
-            <img src='https://i.pinimg.com/originals/cc/a5/02/cca5022c86f67861746d7cf2eb486de8.gif' alt='' style={{ width: '80%' }}/>
-            <h6 style={{ marginTop: '5%', padding: '0% 9%' }}>Let us know what airports you are interested in flying out of.</h6>
+            <div style={{padding:'15%'}}>
+              <img src={s1} alt='' style={{ width:'100%', '-webkit-mask-image': 'linear-gradient(rgb(0, 0, 0) 80%, rgba(0, 0, 0, 0))' }} />
+              <p className="work-p"> Let us know what airports you are interested in flying out of. </p>
+            </div>
           </Col>
           <Col sm={12} md={4} lg={4} className='work-col'>
-            <h5 style={{ fontWeight: 'bold'}} > 2.Select your home airports </h5>
-            <img src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT41RKKh0zoKvp0EiDUeLSShDYSHivuUARAuA&usqp=CAU' alt='' style={{ width: '80%' }}/>
-            <h6 style={{ marginTop: '5%', padding: '0% 9%' }}>Make sure you only get notified about deals in regions that you are interested in traveling to..</h6>
+            <div style={{padding:'15%'}}>
+              <img src={s2} alt='' style={{ width:'100%', '-webkit-mask-image': 'linear-gradient(rgb(0, 0, 0) 80%, rgba(0, 0, 0, 0))' }}/>
+              <p className="work-p"> Make sure you only get notified about deals in regions that you are interested in traveling to. </p>
+            </div>
           </Col>
           <Col sm={12} md={4} lg={4 } className='work-col'>
-            <h5 style={{ fontWeight: 'bold'}} > 3.Select your home airports </h5>
-            <img src='https://i.gifer.com/Olb0.gif' alt='' style={{ width: '80%' }}/>
-            <h6 style={{ marginTop: '5%', padding: '0% 9%' }}>Get notified about amazing deals that you can book using your favorite booking site or application!</h6>
+            <div style={{padding:'15%'}}>
+              <img src={s3} alt='' style={{ width:'100%', '-webkit-mask-image': 'linear-gradient(rgb(0, 0, 0) 80%, rgba(0, 0, 0, 0))' }}/>
+              <p className="work-p">Get notified about amazing deals that you can book using your favorite booking site or application!</p>
+            </div>
           </Col>
         </Row>
       </Container>

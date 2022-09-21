@@ -1,5 +1,18 @@
 .starter {
-  margin-top: 5%;
+  margin-top: 7%;
+  padding: 0 7% !important;
+}
+
+div#starter-left{
+  text-align: left;
+}
+
+.showers {
+  font-size: 0.8em !important;
+}
+
+.showers span{
+  color: #00D890;
 }
 
 div#starter-left h4,
@@ -16,10 +29,11 @@ div#starter-right{
 }
 
 .s-getS{
-  padding: 2% !important;
+  padding: 3% !important;
   text-transform:capitalize !important;
   font-size: 0.9rem !important;
   font-weight: bold !important;
+  box-shadow: none !important;
 }
 
 @media (min-width: 1352px) {

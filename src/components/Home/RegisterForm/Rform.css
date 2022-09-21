@@ -10,8 +10,11 @@ section#register-form .form-check-label {
 section#register-form {
   /* display: flex; */
   /* margin-top: 10%; */
-  width: 50%;
-  margin: 10% 25%;
+  display: flex;
+    align-items: center;
+    margin-bottom: 4em;
+    padding-top: 2em;
+    flex-direction: column;
 }
 
 @media (max-width: 525px) {
@@ -45,10 +48,21 @@ a.ripple:after {
 }
 
 .homeland-card{
-  background: #c7fbc1c7;
-  padding: 2%;
-  margin-bottom: 3%;
-  border-radius: 9px;
+  background: white;
+  margin: 0px;
+  padding: 1em;
+  flex: 0 0 calc(calc(12 / var(--ion-grid-columns, 12)) * 100%);
+  width: calc(calc(12 / var(--ion-grid-columns, 12)) * 100%);
+  max-width: calc(calc(12 / var(--ion-grid-columns, 12)) * 100%);
+
+  border: 1px solid #c4c4c4;
+    box-shadow: 0 6px 20px rgb(0 0 0 / 15%);
+    border-radius: 5px;
+
+    margin-bottom: 3%;
+    font-family: 'poppins';
+    font-weight: bold;
+    text-transform: capitalize;
 }
 
 #register-form .form-check-input[type="checkbox"]:checked {
@@ -85,7 +99,7 @@ div.css-1pahdxg-control {
   border-radius: 9px;
 }
 
-.homeland-select-register .css-4ljt47-MenuList {
+/* .homeland-select-register .css-4ljt47-MenuList {
   background: white !important;
   font-size: large;
   border-radius: 9px;
@@ -94,10 +108,15 @@ div.css-1pahdxg-control {
 .homeland-select-register {
   margin-bottom: 5%;
   background: rgba(255, 255, 255, 0) !important;
-}
+} */
 
 .css-4ljt47-MenuList div {
   /* list items */
   padding: 4% 1% 4% 4%;
   text-align: left;
+}
+
+
+section#register-form input:not(input[type='checkbox']){
+  padding: 1em;
 }

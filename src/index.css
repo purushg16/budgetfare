@@ -9,7 +9,7 @@ body {
 
 #home {
   /* background: #fbe5ce ; */
-  background: rgb(255, 255, 255);
+  /* background: rgb(255, 255, 255);
   background: linear-gradient(
     180deg,
     #ffffff 0%,
@@ -17,7 +17,7 @@ body {
     #f3fff4 59%,
     #f9e1c7 70%,
     white 100%
-  );
+  ); */
 }
 
 #footer{
@@ -55,6 +55,31 @@ body::-webkit-scrollbar-track {
 
 body::-webkit-scrollbar-thumb {
   background-color: rgb(69, 146, 70);
+}
+
+
+@font-face {
+  font-family: "MackinacBold";
+  src: local("MackinacBold"),
+  url("./fonts/P22MackinacPro-ExtraBold_12.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "Mackinac";
+  src: local("Mackinac"),
+  url("./fonts/P22MackinacPro-Bold_16.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "MackinacMini";
+  src: local("MackinacMini"),
+  url("./fonts/P22Mackinac-Book_13.otf") format("truetype");
+}
+
+@font-face {
+  font-family: "MackinacMed";
+  src: local("MackinacMed"),
+  url("./fonts/P22Mackinac-Medium_6.otf") format("truetype");
 }
 
 /* input[type="checkbox"]:focus {

@@ -1,6 +1,45 @@
 .LocSwiper{
     margin-top: 10%;
+    padding-left: 7% !important;
 }
+
+.css-1s2u09g-control, .css-1pahdxg-control{
+    padding: 1%;
+    border-left: transparent !important;
+    font-family:'Poppins' !important;
+    border-radius: 0  99px 99px 0 !important;
+}
+.css-b62m3t-container{
+    width: 100% !important;
+}
+
+#react-select-3-placeholder{
+    white-space: nowrap;
+}
+
+.css-1pahdxg-control{
+    font-family:'Poppins' !important;
+    border-color: hsl(0, 0%, 80%) !important;
+    box-shadow: none !important;
+}
+
+
+.css-1pahdxg-control:hover{
+    border-color: hsl(0, 0%, 80%) !important;
+}
+
+
+.css-1okebmr-indicatorSeparator, 
+.css-tlfecz-indicatorContainer:nth-of-type(2), 
+.css-tlfecz-indicatorContainer:nth-child(2), 
+.css-1gtu0rj-indicatorContainer:nth-of-type(2) {
+    display: none !important;
+}
+
+.css-1pndypt-Input{
+    width: 100% !important;
+}
+
 
 .LocSwiper span.input-group-text {
     background-color: white;
@@ -63,6 +102,35 @@ div.css-4ljt47-MenuList
 /* #react-select-3-listbox{
 
 } */
+
+#locSearch {
+    border-radius: 0 7rem 7rem 0 !important;
+}
+
+#search-addon{
+    border-radius: 7rem 0 0 7rem !important;
+    height: inherit;
+    border-right: transparent !important;
+}
+
+
+
+.card-bottom{
+    border-radius: 99px;
+}
+
+
+/* .top-wrapper::before{
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -1;
+    box-shadow: -5px 5px 20px 5px rgba(0, 0, 0, 0.17);
+} */
+
 
 @media (max-width: 768px) {
     .search-bar{
