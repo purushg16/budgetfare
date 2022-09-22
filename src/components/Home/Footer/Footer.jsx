@@ -1,127 +1,50 @@
-import { MDBCol, MDBContainer, MDBFooter, MDBIcon, MDBRow } from 'mdb-react-ui-kit';
+import { MDBBtn, MDBCol, MDBContainer, MDBFooter, MDBIcon, MDBNavbarBrand, MDBRow } from 'mdb-react-ui-kit';
 import './Footer.css';
+import logo from './Frame 7.png';
 
 export default function Footer() {
     return(
         <section id='footer'>
-            <MDBFooter className='text-center text-lg-start text-muted'>
-      <section className='d-flex justify-content-center justify-content-lg-between p-4 border-bottom'>
-        <div className='me-5 d-none d-lg-block'>
-          <span>Get connected with us on social networks:</span>
-        </div>
 
-        <div>
-          <a href='' className='me-4 text-reset'>
-            <MDBIcon fab icon="facebook-f" />
-          </a>
-          <a href='' className='me-4 text-reset'>
-            <MDBIcon fab icon="twitter" />
-          </a>
-          <a href='' className='me-4 text-reset'>
-            <MDBIcon fab icon="google" />
-          </a>
-          <a href='' className='me-4 text-reset'>
-            <MDBIcon fab icon="instagram" />
-          </a>
-          <a href='' className='me-4 text-reset'>
-            <MDBIcon fab icon="linkedin" />
-          </a>
-          <a href='' className='me-4 text-reset'>
-            <MDBIcon fab icon="github" />
-          </a>
-        </div>
-      </section>
+          <div className='f-banner'>
+            <p style={{ fontFamily:'Mackinac', color:'black', fontSize:'2em' }}> Start traveling for way <br></br> cheaper with Budgetfare </p>
+            <MDBBtn
+            style={{ 
+              color:'white', 
+              background:'#1F413D', 
+              width:'auto', 
+              fontFamily:'poppins',
+              fontWeight: 'bold',
+              padding: '2em',
+              borderRadius: '10px',
+              textTransform: 'capitalize',
+              fontSize:'0.9em',
+              marginTop:'1.5em'
+            }}> 
+            Get started now 
+          </MDBBtn>
+          </div>
 
-      <section className=''>
-        <MDBContainer className='text-center text-md-start mt-5'>
-          <MDBRow className='mt-3'>
-            <MDBCol md="3" lg="4" xl="3" className='mx-auto mb-4'>
-              <h6 className='text-uppercase fw-bold mb-4'>
-                <MDBIcon icon="gem" className="me-3" />
-                BudgetFare
-              </h6>
-              <p>
-                Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
-                consectetur adipisicing elit.
-              </p>
-            </MDBCol>
+          <div id='footer-flex'>
+            <div className='foo-header'>
+              <MDBNavbarBrand href="#" style={{ color:'black', fontFamily:'Mackinac', fontSize:'1.5em'}}> 
+              <img src={logo} alt='' style={{width:'2rem'}}/>
+               budjetfare </MDBNavbarBrand>
+            </div>
+            <div className='foo-list' style={{
+              fontFamily:'poppins',
+              fontWeight:'bold'
+            }}> 
+              <a href='.'> About </a> <span> | </span>
+              <a href='.'> Privacy Policy </a> <span> | </span>
+              <a href='.'> Terms of Service </a> <span> | </span>
+              <a href='.'> Refund Policy </a> 
+            </div>
+            
+            <MDBBtn outline color='dark' style={{ padding:'2em', color:'black', textTransform:'capitalize', fontFamily:'poppins', fontWeight:'bold' }} > Contact Us </MDBBtn>
 
-            <MDBCol md="2" lg="2" xl="2" className='mx-auto mb-4'>
-              <h6 className='text-uppercase fw-bold mb-4'>Products</h6>
-              <p>
-                <a href='#!' className='text-reset'>
-                  Angular
-                </a>
-              </p>
-              <p>
-                <a href='#!' className='text-reset'>
-                  React
-                </a>
-              </p>
-              <p>
-                <a href='#!' className='text-reset'>
-                  Vue
-                </a>
-              </p>
-              <p>
-                <a href='#!' className='text-reset'>
-                  Laravel
-                </a>
-              </p>
-            </MDBCol>
+          </div>
 
-            <MDBCol md="3" lg="2" xl="2" className='mx-auto mb-4'>
-              <h6 className='text-uppercase fw-bold mb-4'>Useful links</h6>
-              <p>
-                <a href='#!' className='text-reset'>
-                  Pricing
-                </a>
-              </p>
-              <p>
-                <a href='#!' className='text-reset'>
-                  Settings
-                </a>
-              </p>
-              <p>
-                <a href='#!' className='text-reset'>
-                  Orders
-                </a>
-              </p>
-              <p>
-                <a href='#!' className='text-reset'>
-                  Help
-                </a>
-              </p>
-            </MDBCol>
-
-            <MDBCol md="4" lg="3" xl="3" className='mx-auto mb-md-0 mb-4'>
-              <h6 className='text-uppercase fw-bold mb-4'>Contact</h6>
-              <p>
-                <MDBIcon icon="home" className="me-2" />
-                New York, NY 10012, US
-              </p>
-              <p>
-                <MDBIcon icon="envelope" className="me-3" />
-                info@example.com
-              </p>
-              <p>
-                <MDBIcon icon="phone" className="me-3" /> + 01 234 567 88
-              </p>
-              <p>
-                <MDBIcon icon="print" className="me-3" /> + 01 234 567 89
-              </p>
-            </MDBCol>
-          </MDBRow>
-        </MDBContainer>
-      </section>
-
-      <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
-        © 2022 Copyright:
-        <a className='text-reset fw-bold' href='/'>
-            BudgetFare
-        </a>
-      </div>
-    </MDBFooter>
         </section>
     )
 }

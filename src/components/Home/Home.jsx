@@ -9,6 +9,8 @@ import Deals from "./Deals/Deals";
 import Footer from "./Footer/Footer";
 import { useEffect, useState } from "react";
 import { MDBProgress, MDBProgressBar } from "mdb-react-ui-kit";
+import Greeting from "./Greetings/Greeting";
+import QA from "./QA/QA";
 
 function Home() {
   const [ports, fetchPorts] = useState([]);
@@ -47,6 +49,8 @@ function Home() {
         <RegisterForm />
         <Offers />
         <Deals />
+        <Greeting />
+        <QA />
         <Footer />
       </div>
     ) : ( 

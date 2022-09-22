@@ -1,0 +1,28 @@
+
+
+section#QA{
+    padding: 5em;
+}
+
+.inner-qa{
+    padding: 5em 2em;
+}
+
+.inner-qa .row{
+    align-items: center;
+}
+
+.inner-qa .inner-col{
+    margin: 1em 0;
+}
+
+.accordion-header button{
+    color: black;
+    font-family: 'Poppins';
+    font-weight: bold;
+    justify-content: space-evenly;
+}
+
+.accordion-button:not(.collapsed) {
+    color: #000 !important;
+}

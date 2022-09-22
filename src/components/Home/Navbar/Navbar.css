@@ -5,7 +5,20 @@
   padding: 1%;
   font-family: Mackinac;
   font-size: 1rem;
+  z-index: 99;
 }
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  transition: all 1s;
+}
+
+.sticky + .content {
+  padding-top: 102px;
+}
+
 
 .navbar-light .navbar-nav .nav-link {
   color:black !important;

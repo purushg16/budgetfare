@@ -1,17 +1,17 @@
 
 section#deals-sec{
-    margin: 5%;
+    margin: 5em 0;
 }
 
 div.deals-col{
-    margin: 5% 7%;
+    margin: 0 10em;
 }
 
-.h-100{
+/* .h-100{
     display: flex !;
     display: -webkit-flex;
     flex-wrap: wrap;
-}
+} */
 
 p.pros{
     font-size: 0.7rem;
@@ -46,3 +46,43 @@ p.pros.no{
 } */
 
 
+
+.deal-card{
+    border: 2px solid #DADADA;
+    border-radius: 5px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.dc-header{
+    padding: 2em 1em 1em;
+}
+
+.dc-desc{
+    padding: 2em;
+}
+
+.dc-desc p{
+    padding: 0.5em 0;
+}
+
+#dc-card-btn{
+    color: black;
+    background: #C4E0E5;
+    box-shadow: none !important;
+    font-family: 'poppins';
+    font-weight: bold;
+    text-transform: capitalize !important;
+    border-radius: 0;
+    padding: 5%;
+}
+
+#dc-card-btn:hover{
+    background-color: #d0e1e4;
+}
+
+p.avlb{
+    color: black;
+}
