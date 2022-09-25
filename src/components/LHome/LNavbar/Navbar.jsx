@@ -8,7 +8,7 @@ import {
   MDBBtn,
 } from "mdb-react-ui-kit";
 // import { useEffect, useState } from "react";
-
+import logo from "./logo.png";
 import "./Navbar.css";
 // import { useNavigate, useLocation, Navigate} from "react-router-dom";
 
@@ -28,7 +28,13 @@ function NavbarTop() {
     <>    
       <MDBNavbar sticky expand="lg" light  className="lnavbar-top" style={{ background: '#ffffffe8' }}>
         <MDBContainer fluid>
-          <MDBNavbarBrand href="#"> BudgetFare </MDBNavbarBrand>
+          <MDBNavbarBrand href="#"> 
+          <img
+              src={logo}
+              alt=""
+              style={{ width: "1.2rem" }}
+            />
+          BudgetFare </MDBNavbarBrand>
 
           {/* <MDBNavbarToggler
             aria-controls="navbarSupportedContent"
@@ -40,18 +46,20 @@ function NavbarTop() {
           </MDBNavbarToggler> */}
 
           {/* <MDBCollapse navbar show={showBasic}> */}
-            <MDBNavbarNav  id="link-group" className="mr-auto mb-2 mb-lg-0">
+            <MDBNavbarNav  id="link-group" className="mr-auto mb-2 mb-lg-0" 
+              style={{ fontFamily: "poppins", color: "black" }}
+              >
             <MDBNavbarItem>
-                <MDBNavbarLink href="#" style={{ whiteSpace: 'nowrap' }}> Deals </MDBNavbarLink>
+                <MDBNavbarLink href="#" style={{ whiteSpace: 'nowrap',  fontWeight:'bold' }}> Deals </MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <MDBNavbarLink href="#"  style={{ whiteSpace: 'nowrap' }}> Departure Airport </MDBNavbarLink> 
+                <MDBNavbarLink href="#"  style={{ whiteSpace: 'nowrap',  fontWeight:'bold' }}> Departure Airport </MDBNavbarLink> 
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <MDBNavbarLink href="#"  style={{ whiteSpace: 'nowrap' }}> Deals Settings </MDBNavbarLink>
+                <MDBNavbarLink href="#"  style={{ whiteSpace: 'nowrap',  fontWeight:'bold' }}> Deals Settings </MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
-                <MDBNavbarLink href="/myaccount"  style={{ whiteSpace: 'nowrap' }}> My Account </MDBNavbarLink>
+                <MDBNavbarLink href="/myaccount"  style={{ whiteSpace: 'nowrap', fontWeight:'bold' }}> My Account </MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem>
                 <MDBNavbarLink href="#"  style={{ whiteSpace: 'nowrap' }}> GiftFareDrop </MDBNavbarLink>
@@ -62,7 +70,15 @@ function NavbarTop() {
             </MDBNavbarNav>
 
             <div className='button-group'>
-              <a href="#register-form"><MDBBtn onClick={signOut} outline color="success" type="button" className='nav-reg-btn' style={{ whiteSpace: 'nowrap' }}>
+              <a href="#register-form"><MDBBtn onClick={signOut} outline color="success" type="button" className='nav-reg-btn' 
+                style={{ 
+                  whiteSpace: 'nowrap',
+                  borderRadius:'9px',
+                  padding:'1.5em 3em',
+                  textTransform:'capitalize',
+                  fontFamily:'poppins',
+                  fontWeight:'bold'
+                  }}>
                 Sign Out
               </MDBBtn>
               </a>
@@ -70,7 +86,7 @@ function NavbarTop() {
         </MDBContainer>
       </MDBNavbar>
 
-      <h3 style={{ margin: '3% 7%', textAlign: 'left' }}> Hello, Purushothaman! </h3>
+      <h3 style={{ margin: '3% 7%', textAlign: 'left', fontFamily:'Mackinac' }}> Hello, Purushothaman! </h3>
     </>
   );
 }

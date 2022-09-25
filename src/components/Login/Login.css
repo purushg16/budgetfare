@@ -1,27 +1,27 @@
-#login-form {
+#inner-login{
   width: 50%;
   padding: 5% 10% 2%;
-  margin: 5% 25%;
+  margin: 5% 25% 0;
 }
 
 @media (max-width: 961px) {
-    #login-form {
+    #inner-login{
         width: 70%;
-    margin: 10% 15%;
+    margin: 10% 15% 0;
     }}
 
 
 @media (max-width: 623px) {
-  #login-form {
+  #inner-login{
     width: 80%;
-    margin: 10%;
+    margin: 10% 10% 0;
   }
 }
 
 @media (max-width: 480px) {
-  #login-form {
+  #inner-login{
     width: 90%;
-    margin: 5%;
+    margin: 5% 5% 0;
   }
 }
 
@@ -37,4 +37,10 @@
   100% {
     transform: rotate(359deg);
   }
+}
+
+.connect-nav{
+  display: flex;
+  justify-content: space-between;
+  padding: 2% 6% 0;
 }

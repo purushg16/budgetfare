@@ -1,5 +1,17 @@
 
 
-#lfooter{
-    margin: 5%;
+#lfooter #lf-top{
+    padding: 5%;
+
+    background: url('./deals-dashboard-bg.png');
+}
+
+#lfooter #footer-flex{
+    margin: 0 !important;
+    padding: 10% 7%;
+    background: #2C625C;
+}
+
+#lfooter .foo-list a{
+    color: #94b2b1;
 }

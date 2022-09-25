@@ -28,7 +28,6 @@ export default function LHome() {
             {/* <GPlans />
             <GProPlans /> */}
             <LFooter />
-            <Footer/>
             <ControlBar />
         </section>
     )
