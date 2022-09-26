@@ -14,4 +14,9 @@
 
 #lfooter .foo-list a{
     color: #94b2b1;
+    transition: all 0.5s;
+}
+
+#lfooter .foo-list a:hover{
+    color: #bec4c4;
 }

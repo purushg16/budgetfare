@@ -16,6 +16,7 @@ import Personal from "./Personal";
 import AccountPlans from "./Plan";
 import Notifications from "./Notification";
 import { useNavigate, useLocation, Navigate} from "react-router-dom";
+import NavbarTop from "../LNavbar/Navbar";
 
 
 export default function MyAccount() {
@@ -26,6 +27,7 @@ export default function MyAccount() {
   window.sessionStorage.setItem("token", 'hii');
 
   const [verticalActive, setVerticalActive] = useState("tab1");
+  
 
   const handleVerticalClick = (value) => {
     if (value === verticalActive) {
@@ -48,6 +50,9 @@ export default function MyAccount() {
   })
 
   return (
+
+    <>
+    <NavbarTop header={false} />
     <section id="my-account">
       <div
         style={{
@@ -55,21 +60,19 @@ export default function MyAccount() {
           marginBottom: "5%",
           display: "flex",
           justifyContent: "space-between",
+          fontFamily:'Mackinacmini',
+          color:'black',
+          fontSize:'large'
         }}
       >
-        <h4> Account Settings </h4>
-        <MDBBtn color="info" outline
-          onClick={(e)=>{removeToken()}}
-        >
-          Sign Out
-        </MDBBtn>
+        <h3> Account Settings </h3>
       </div>
 
-      <MDBRow>
-        <MDBCol sm={12} md={4} lg={4} style={{ paddingLeft: "3%" }}>
+      <MDBRow style={{ fontFamily:'poppins' }}>
+        <MDBCol sm={12} md={3} lg={3} style={{ padding: "1% 3% 3%" }}>
           <MDBTabs
             className="flex-column"
-            style={{ textAlign: "left", marginBottom: "5%" }}
+            style={{ textAlign: "left", marginBottom: "5%", color:'grey' , fontSize:'large'}}
           >
             Account
           </MDBTabs>
@@ -103,7 +106,7 @@ export default function MyAccount() {
             </MDBTabsItem>
           </MDBTabs>
         </MDBCol>
-        <MDBCol sm={12} md={8} lg={8}>
+        <MDBCol sm={12} md={9} lg={9}>
           <MDBTabsContent>
             <MDBTabsPane
               style={{ background: "" }}
@@ -122,5 +125,6 @@ export default function MyAccount() {
         </MDBCol>
       </MDBRow>
     </section>
+    </>
   );
 }

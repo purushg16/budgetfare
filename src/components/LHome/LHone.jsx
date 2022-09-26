@@ -23,10 +23,10 @@ export default function LHome() {
 
     return(
         <section id="LHome">
-            <NavbarTop />
+            <NavbarTop header={true} />
             <DPlans />
-            {/* <GPlans />
-            <GProPlans /> */}
+            <GPlans />
+            <GProPlans />
             <LFooter />
             <ControlBar />
         </section>

@@ -70,8 +70,8 @@ export default function GPlans() {
   const [scrollableModal, setScrollableModal] = useState(false);
 
   return (
-    <section id="gPlans">
-      <h4 style={{ textAlign: "left", margin: "1% 7%" , fontFamily:'poppins', fontWeight:'bold', color:'black'}}> Global Plans </h4>
+    <section id="dPlans">
+      <h4 style={{ textAlign: "left", margin: "1% 7%" , fontFamily:'poppins', fontWeight:'bold', color:'black'}}> Domestic Plans </h4>
 
       <Swiper
         slidesPerView={4}
@@ -132,7 +132,7 @@ export default function GPlans() {
                   fontWeight: "bold",
                 }}
               >
-                <h5 style={{ fontWeight: "bold" }}> ${deal.from.name}
+                <h5 style={{ fontWeight: "bold" }}> {deal.from.name}
                   {/* <span style={{ textDecoration:'line-through', fontSize:'0.8rem' }}> ${deal.usualPrice} </span> 
                   { deal.budgetAirline ? <span style={{ background:'red', padding:'1%', borderRadius:'99px 0px 0px 99px', position:'fixed', right:0, top:1, color:'white', fontSize:'0.7rem', whiteSpace:'nowrap' }}> Budget </span> : null } 
                   { deal.nonStop ? <span style={{ background:'green', padding:'1%', borderRadius:'99px 0px 0px 99px', position:'fixed', right:0, color:'white', fontSize:'0.7rem', whiteSpace:'nowrap' }}> Non Stop </span> : null }

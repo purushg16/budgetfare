@@ -12,7 +12,7 @@ import logo from "./logo.png";
 import "./Navbar.css";
 // import { useNavigate, useLocation, Navigate} from "react-router-dom";
 
-function NavbarTop() {
+function NavbarTop(props) {
   // const [showBasic, setShowBasic] = useState(false);
   
   function signOut(){
@@ -86,7 +86,8 @@ function NavbarTop() {
         </MDBContainer>
       </MDBNavbar>
 
-      <h3 style={{ margin: '3% 7%', textAlign: 'left', fontFamily:'Mackinac' }}> Hello, Purushothaman! </h3>
+      { props.header ? 
+      <h3 style={{ margin: '3% 7%', textAlign: 'left', fontFamily:'Mackinac' }}> Hello, Purushothaman! </h3> : null}
     </>
   );
 }

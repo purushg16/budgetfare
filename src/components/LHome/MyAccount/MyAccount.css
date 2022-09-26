@@ -19,13 +19,25 @@ ul.nav-tabs li {
 }
 
 #my-account li.nav-item a {
-  color: rgb(103, 103, 103) !important;
+  color: #2C625C !important;
   font-weight: bold;
+
+  text-transform: capitalize;
+  font-size: medium;
 }
 
-#my-account .nav-link.active {
-  color: rgb(187, 255, 187) !important;
+
+#my-account a.nav-link.active{
+  background: aliceblue !important;
 }
+
+#my-account a.nav-link:hover{
+  background: aliceblue !important;
+}
+
+/* #my-account .nav-link.active {
+   color: rgb(187, 255, 187) !important;
+} */
 
 /* personal */
 
