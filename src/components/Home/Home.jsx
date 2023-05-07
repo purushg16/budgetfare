@@ -38,7 +38,7 @@ function Home() {
   return (
 
     <>
-    {ports.length !== 0 ? (
+//     {ports.length !== 0 ? (
       <div id="home">
         <div className="landing">
           <NavbarTop />
@@ -53,21 +53,21 @@ function Home() {
         <QA />
         <Footer />
       </div>
-    ) : ( 
+//     ) : ( 
 
-    <div style={{ 
-      position: 'fixed',
-      width: '50%',
-      top: '40%',
-      left: '35%',
-      transform: 'translate(-20%, -20%)',
-      }}>
-      <p style={{ animation: 'bounce',animationDuration: '2s', fontWeight:'bold'}} > Loading </p>
-      <MDBProgress>
-        <MDBProgressBar width={progress} valuemin={0} valuemax={100} bgColor='success' />
-      </MDBProgress>
-    </div>
-   )} 
+//     <div style={{ 
+//       position: 'fixed',
+//       width: '50%',
+//       top: '40%',
+//       left: '35%',
+//       transform: 'translate(-20%, -20%)',
+//       }}>
+//       <p style={{ animation: 'bounce',animationDuration: '2s', fontWeight:'bold'}} > Loading </p>
+//       <MDBProgress>
+//         <MDBProgressBar width={progress} valuemin={0} valuemax={100} bgColor='success' />
+//       </MDBProgress>
+//     </div>
+//    )} 
     </> 
   );
 }
