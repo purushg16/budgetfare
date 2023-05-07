@@ -37,7 +37,7 @@ function Home() {
 
   return (
 
-    <>
+//     <>
 //     {ports.length !== 0 ? (
       <div id="home">
         <div className="landing">
@@ -68,7 +68,7 @@ function Home() {
 //       </MDBProgress>
 //     </div>
 //    )} 
-    </> 
+//     </> 
   );
 }
 
